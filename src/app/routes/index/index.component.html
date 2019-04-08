@@ -1,0 +1,48 @@
+<div class="fb__index-wrapper">
+  <div class="fb__index-head-line">
+    <div class="fb__index-search-wrapper">
+      <nz-input-group nzSearch  [nzAddOnAfter]="suffixButton" class="fb__index-search-btn">
+        <input type="text" nz-input placeholder="输入页面名称查询" />
+      </nz-input-group>
+      <ng-template #suffixButton>
+        <button nz-button nzType="primary" nzSearch>查询</button>
+      </ng-template>
+      <button nz-button nzType="default">清空</button>
+    </div>
+    <button nz-button nzType="primary">
+      <i nz-icon nzType="plus" nzTheme="outline"></i>
+      新建页面
+    </button>
+  </div>
+  <div class="fb__index-result-wrapper">
+    <nz-table #nzTable [nzData]="" [nzPageSize]="10">
+      <thead>
+        <tr>
+          <th>编号</th>
+          <th>序号</th>
+          <th>标题</th>
+          <th>创建者</th>
+          <th>更新时间</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dataItem of nzTable.data; let i = index">
+          <td>
+            <span></span>
+            <span>
+              <label nz-radio ></label>
+            </span>
+          </td>
+          <td>{{ i + 1}}</td>
+          <td>{{dataItem.title}}</td>
+          <td>{{dataItem.author}}</td>
+          <td>{{dataItem.updateTime}}</td>
+          <td>
+            
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>
