@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'fb-settings',
-  templateUrl: './settings.component.html',
-  styleUrls: ['./settings.component.less']
+  templateUrl: './settings.component.html'
 })
 export class SettingsComponent implements OnInit {
 
