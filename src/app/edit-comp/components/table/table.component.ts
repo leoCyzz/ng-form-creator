@@ -3,7 +3,7 @@ import { ITable } from 'app/model/component';
 import { IDynamicComponent } from 'app/model/dynamic';
 
 @Component({
-  selector: 'fb-table',
+  selector: 'fc-table',
   templateUrl: './table.component.html'
 })
 export class TableComponent implements IDynamicComponent, OnInit {

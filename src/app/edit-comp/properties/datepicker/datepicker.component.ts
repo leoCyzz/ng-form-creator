@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'fb-property-datepicker',
+  selector: 'fc-property-datepicker',
   templateUrl: './datepicker.component.html'
 })
 export class DatepickerPropertyComponent implements OnInit {

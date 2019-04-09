@@ -3,7 +3,7 @@ import { IDynamicComponent } from 'app/model/dynamic';
 import { IPrint } from 'app/model/component';
 
 @Component({
-  selector: 'fb-print',
+  selector: 'fc-print',
   templateUrl: './print.component.html'
 })
 export class PrintComponent implements IDynamicComponent, OnInit {

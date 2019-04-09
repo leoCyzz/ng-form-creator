@@ -2,7 +2,7 @@ import { Component, OnInit, Output, Input, EventEmitter, ElementRef, Renderer2 }
 import { ItemDimension, RawPosition } from 'app/model/dynamic';
 
 @Component({
-  selector: 'fb-sketch-select',
+  selector: 'fc-sketch-select',
   templateUrl: './sketch-select.component.html'
 })
 export class SketchSelectComponent implements OnInit {
@@ -14,7 +14,7 @@ export class SketchSelectComponent implements OnInit {
     private renderer: Renderer2) { }
 
   ngOnInit() {
-    this.renderer.addClass(this.el.nativeElement, 'zw-creator__sketch-select-box');
+    this.renderer.addClass(this.el.nativeElement, 'fc__sketch-select-box');
   }
 
   public setDimension(dimension: ItemDimension) {

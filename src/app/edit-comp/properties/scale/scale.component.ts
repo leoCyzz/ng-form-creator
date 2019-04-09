@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'fb-property-scale',
+  selector: 'fc-property-scale',
   templateUrl: './scale.component.html'
 })
 export class ScalePropertyComponent implements OnInit {

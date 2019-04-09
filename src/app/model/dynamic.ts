@@ -2,7 +2,7 @@ import { IComponent } from './component';
 import { Type } from '@angular/core';
 import { ButtonComponent, ContainerComponent, CheckboxComponent, DatepickerComponent,
     InputComponent, InputNumberComponent, PrintComponent, ScaleComponent, SelectComponent,
-    TableComponent, UploadComponent, RadioComponent } from '../components';
+    TableComponent, UploadComponent, RadioComponent } from '../edit-comp/components';
 
 export interface IEditDynamic {
     config: IComponent;

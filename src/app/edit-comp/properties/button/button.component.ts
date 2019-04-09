@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'fb-property-button',
+  selector: 'fc-property-button',
   templateUrl: './button.component.html'
 })
 export class ButtonPropertyComponent implements OnInit {

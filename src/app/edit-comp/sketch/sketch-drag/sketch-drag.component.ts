@@ -3,7 +3,7 @@ import { IComponent } from 'app/model/component';
 import { ItemDimension, RawPosition } from 'app/model/dynamic';
 
 @Component({
-  selector: 'fb-sketch-drag',
+  selector: 'fc-sketch-drag',
   templateUrl: './sketch-drag.component.html'
 })
 export class SketchDragComponent implements OnInit {
@@ -15,7 +15,7 @@ export class SketchDragComponent implements OnInit {
     private renderer: Renderer2) { }
 
   ngOnInit() {
-    this.renderer.addClass(this.el.nativeElement, 'fb__drag-box');
+    this.renderer.addClass(this.el.nativeElement, 'fc__drag-box');
   }
 
   public setDimension(dimension: ItemDimension) {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'fb-property-table',
+  selector: 'fc-property-table',
   templateUrl: './table.component.html'
 })
 export class TablePropertyComponent implements OnInit {

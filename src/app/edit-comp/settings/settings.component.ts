@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'fb-settings',
+  selector: 'fc-settings',
   templateUrl: './settings.component.html'
 })
 export class SettingsComponent implements OnInit {

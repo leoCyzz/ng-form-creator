@@ -78,7 +78,8 @@ export class DefaultInterceptor implements HttpInterceptor {
         case 401: // 未登录状态码
             // 请求错误 401: https://preview.pro.ant.design/api/401 用户没有权限（令牌、用户名、密码错误）。
             // (this.injector.get(DA_SERVICE_TOKEN) as ITokenService).clear();
-            this.goTo('/passport/login');
+            // this.goTo('/passport/login');
+            this.goTo('/');
             break;
         case 403:
         case 404:

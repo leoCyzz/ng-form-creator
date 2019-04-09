@@ -2,10 +2,10 @@ import { Directive, Input, ComponentRef, ComponentFactoryResolver, ViewContainer
     OnInit, OnChanges, SimpleChanges, AfterViewInit } from '@angular/core';
 import { IComponent } from 'app/model/component';
 import { IDynamicComponent, DYNAMIC_COMPONENTS } from 'app/model/dynamic';
-import { SketchService } from '../../core/service/sketch.service';
+import { SketchService } from '../service/sketch.service';
 
 @Directive({
-    selector: '[fbDynamicComponent]'
+    selector: '[fcDynamicComponent]'
 })
 export class DynamicComponentDirective implements OnInit, OnChanges, AfterViewInit {
     @Input() config: IComponent;

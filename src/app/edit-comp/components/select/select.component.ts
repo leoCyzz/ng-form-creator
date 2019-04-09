@@ -3,7 +3,7 @@ import { IDynamicComponent } from 'app/model/dynamic';
 import { ISelect } from 'app/model/component';
 
 @Component({
-  selector: 'fb-select',
+  selector: 'fc-select',
   templateUrl: './select.component.html'
 })
 export class SelectComponent implements IDynamicComponent, OnInit {

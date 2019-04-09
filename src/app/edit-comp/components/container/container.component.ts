@@ -3,7 +3,7 @@ import { IDynamicComponent } from 'app/model/dynamic';
 import { ILayoutComponent } from 'app/model/component';
 
 @Component({
-  selector: 'fb-container',
+  selector: 'fc-container',
   templateUrl: './container.component.html'
 })
 export class ContainerComponent implements IDynamicComponent, OnInit {

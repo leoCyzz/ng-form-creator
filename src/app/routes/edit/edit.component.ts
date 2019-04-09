@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PageConfig, IPage } from 'app/model/page';
 
 @Component({
-  selector: 'fb-edit',
+  selector: 'fc-edit',
   templateUrl: './edit.component.html'
 })
 export class EditComponent implements OnInit {

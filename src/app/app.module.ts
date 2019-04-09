@@ -10,7 +10,7 @@ import * as df_zh_cn from 'date-fns/locale/zh_cn';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { I18NService } from '@core/i18n/i18n.service';
+import { I18NService, FC_I18N_TOKEN } from '@core/i18n/i18n.service';
 import { DefaultInterceptor } from '@core/net/default.interceptor';
 import { StartupService } from '@core/startup/startup.service';
 import { AppComponent } from './app.component';
@@ -38,7 +38,7 @@ const LANG_PROVIDES = [
 
 // 加载i18n语言文件
 export function I18nHttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, `assets/tmp/i18n/`, '.json');
+  return new TranslateHttpLoader(http, `assets/i18n/`, '.json');
 }
 
 const I18NSERVICE_MODULES = [
@@ -52,7 +52,7 @@ const I18NSERVICE_MODULES = [
 ];
 
 const I18NSERVICE_PROVIDES = [
-  { provide: ALAIN_I18N_TOKEN, useClass: I18NService, multi: false }
+  { provide: FC_I18N_TOKEN, useClass: I18NService, multi: false }
 ];
 // #region
 

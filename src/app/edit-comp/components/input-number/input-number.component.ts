@@ -3,7 +3,7 @@ import { IDynamicComponent } from 'app/model/dynamic';
 import { IInputNumber } from 'app/model/component';
 
 @Component({
-  selector: 'fb-input-number',
+  selector: 'fc-input-number',
   templateUrl: './input-number.component.html'
 })
 export class InputNumberComponent implements IDynamicComponent, OnInit {

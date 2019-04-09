@@ -3,7 +3,7 @@ import { IDynamicComponent } from 'app/model/dynamic';
 import { IButton } from 'app/model/component';
 
 @Component({
-  selector: 'fb-button',
+  selector: 'fc-button',
   templateUrl: './button.component.html'
 })
 export class ButtonComponent implements IDynamicComponent, OnInit {

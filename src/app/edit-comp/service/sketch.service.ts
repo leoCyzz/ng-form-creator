@@ -1,5 +1,5 @@
 import { Injectable, ElementRef } from '@angular/core';
-import { DynamicComponentDirective } from '../../edit-comp/directive/dynamic-component.directive';
+import { DynamicComponentDirective } from '../directive/dynamic-component.directive';
 import { ILayoutComponent } from 'app/model/component';
 
 @Injectable({

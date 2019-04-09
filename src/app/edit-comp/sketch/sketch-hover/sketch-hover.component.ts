@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
 import { RawPosition, ItemDimension } from 'app/model/dynamic';
 
 @Component({
-  selector: 'fb-sketch-hover',
+  selector: 'fc-sketch-hover',
   templateUrl: './sketch-hover.component.html'
 })
 export class SketchHoverComponent implements OnInit {
@@ -12,7 +12,7 @@ export class SketchHoverComponent implements OnInit {
     private renderer: Renderer2) { }
 
   ngOnInit() {
-    this.renderer.addClass(this.el.nativeElement, 'fb__hover-box');
+    this.renderer.addClass(this.el.nativeElement, 'fc__hover-box');
   }
 
   public setDimension(dimension: ItemDimension) {

@@ -7,7 +7,7 @@ import { IComponent, ILayoutComponent, ButtonComp, ContainerComp, InputComp, Che
   SelectComp, RadioComp, InputNumberComp, DatepickerComp, TableComp, ScaleComp, PrintComp,
   UploadComp } from 'app/model/component';
 import { SketchHoverComponent, SketchDragComponent, SketchSelectComponent } from '.';
-import { SketchService } from '@core/service/sketch.service';
+import { SketchService } from 'app/edit-comp/service/sketch.service';
 import { RawPosition, ItemDimension } from 'app/model/dynamic';
 
 const SELECTOR_LIST = [
@@ -26,7 +26,7 @@ const SELECTOR_LIST = [
 ];
 
 @Component({
-  selector: 'fb-sketch',
+  selector: 'fc-sketch',
   templateUrl: './sketch.component.html'
 })
 export class SketchComponent implements OnInit, OnChanges, AfterViewInit {

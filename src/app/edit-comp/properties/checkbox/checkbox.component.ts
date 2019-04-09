@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'fb-property-checkbox',
+  selector: 'fc-property-checkbox',
   templateUrl: './checkbox.component.html'
 })
 export class CheckboxPropertyComponent implements OnInit {

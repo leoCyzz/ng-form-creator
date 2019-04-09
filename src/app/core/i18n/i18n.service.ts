@@ -1,5 +1,5 @@
 // 请参考：https://ng-alain.com/docs/i18n
-import { Injectable } from '@angular/core';
+import { Injectable, InjectionToken } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
@@ -129,3 +129,5 @@ export class I18NService {
     );
   }
 }
+
+export const FC_I18N_TOKEN = new InjectionToken<I18NService>('FC_I18N_TOKEN');

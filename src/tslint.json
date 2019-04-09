@@ -6,7 +6,7 @@
       "attribute",
       [
         "app",
-        "fb"
+        "fc"
       ],
       "camelCase"
     ],
@@ -15,7 +15,7 @@
       "element",
       [
         "app",
-        "fb",
+        "fc",
         "exception",
         "cc"
       ],

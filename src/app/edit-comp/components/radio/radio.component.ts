@@ -3,7 +3,7 @@ import { IDynamicComponent } from 'app/model/dynamic';
 import { IRadio } from 'app/model/component';
 
 @Component({
-  selector: 'fb-radio',
+  selector: 'fc-radio',
   templateUrl: './radio.component.html'
 })
 export class RadioComponent implements IDynamicComponent, OnInit {

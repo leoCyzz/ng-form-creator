@@ -3,7 +3,7 @@ import { IDynamicComponent } from 'app/model/dynamic';
 import { IScale } from 'app/model/component';
 
 @Component({
-  selector: 'fb-scale',
+  selector: 'fc-scale',
   templateUrl: './scale.component.html'
 })
 export class ScaleComponent implements IDynamicComponent, OnInit {

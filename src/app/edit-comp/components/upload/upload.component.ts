@@ -3,7 +3,7 @@ import { IDynamicComponent } from 'app/model/dynamic';
 import { IUpload } from 'app/model/component';
 
 @Component({
-  selector: 'fb-upload',
+  selector: 'fc-upload',
   templateUrl: './upload.component.html'
 })
 export class UploadComponent implements IDynamicComponent, OnInit {

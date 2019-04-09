@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'fb-property-radio',
+  selector: 'fc-property-radio',
   templateUrl: './radio.component.html'
 })
 export class RadioPropertyComponent implements OnInit {

@@ -1,7 +1,7 @@
-<div class="fb__index-wrapper">
-  <div class="fb__index-head-line">
-    <div class="fb__index-search-wrapper">
-      <nz-input-group nzSearch  [nzAddOnAfter]="suffixButton" class="fb__index-search-btn">
+<div class="fc__index-wrapper">
+  <div class="fc__index-head-line">
+    <div class="fc__index-search-wrapper">
+      <nz-input-group nzSearch  [nzAddOnAfter]="suffixButton" class="fc__index-search-btn">
         <input type="text" nz-input placeholder="输入页面名称查询" />
       </nz-input-group>
       <ng-template #suffixButton>
@@ -11,10 +11,10 @@
     </div>
     <button nz-button nzType="primary">
       <i nz-icon nzType="plus" nzTheme="outline"></i>
-      新建页面
+      新建页面{{'t1'| translate}}
     </button>
   </div>
-  <div class="fb__index-result-wrapper">
+  <div class="fc__index-result-wrapper">
     <nz-table #nzTable [nzData]="" [nzPageSize]="10">
       <thead>
         <tr>
