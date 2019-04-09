@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PageConfig, IPage } from 'src/app/model/page';
+import { PageConfig, IPage } from 'app/model/page';
 
 @Component({
   selector: 'fb-edit',
@@ -7,11 +7,13 @@ import { PageConfig, IPage } from 'src/app/model/page';
 })
 export class EditComponent implements OnInit {
   pageConfig: IPage;
+  translation: any;
   selectorCompParams: any;
   constructor() { }
 
   ngOnInit() {
     this.pageConfig = new PageConfig();
+    this.translation = {};
   }
 
   onComponentSelect(e: any) {

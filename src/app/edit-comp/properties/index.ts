@@ -1,0 +1,13 @@
+export { ButtonPropertyComponent } from './button/button.component';
+export { CheckboxPropertyComponent } from './checkbox/checkbox.component';
+export { ContainerPropertyComponent } from './container/container.component';
+export { DatepickerPropertyComponent } from './datepicker/datepicker.component';
+export { InputPropertyComponent } from './input/input.component';
+export { InputNumberPropertyComponent } from './input-number/input-number.component';
+export { PagePropertyComponent } from './page/page.component';
+export { PrintPropertyComponent } from './print/print.component';
+export { RadioPropertyComponent } from './radio/radio.component';
+export { ScalePropertyComponent } from './scale/scale.component';
+export { SelectPropertyComponent } from './select/select.component';
+export { TablePropertyComponent } from './table/table.component';
+export { UploadPropertyComponent } from './upload/upload.component';

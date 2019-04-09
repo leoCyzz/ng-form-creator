@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
-import { SharedModule } from '../../shared';
-
+import { SharedModule } from '@shared';
 import { ExceptionRoutingModule } from './exception-routing.module';
 
 import { Exception403Component } from './403.component';

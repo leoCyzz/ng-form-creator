@@ -3,8 +3,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'fb-default',
-  templateUrl: './default.component.html',
-  styleUrls: ['./default.component.less']
+  templateUrl: './default.component.html'
 })
 export class LayoutDefaultComponent implements OnInit {
 

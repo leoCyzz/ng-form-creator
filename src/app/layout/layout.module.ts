@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { LayoutDefaultComponent } from './default/default.component';
-import { SharedModule } from '../shared';
+import { SharedModule } from '@shared';
 
 const COMPONENTS = [
   LayoutDefaultComponent,

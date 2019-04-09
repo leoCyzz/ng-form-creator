@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from '@env/environment';
 import { LayoutDefaultComponent } from '../layout/default/default.component';
 import { IndexComponent } from './index/index.component';
 import { EditComponent } from './edit/edit.component';

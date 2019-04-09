@@ -6,6 +6,7 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { CcModule } from './cc/cc.module';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 const THIRD_MODULES = [
   NgZorroAntdModule,
@@ -36,6 +37,8 @@ const DIRECTIVES = [];
     CommonModule,
     FormsModule,
     RouterModule,
+    // i18n
+    TranslateModule,
     // third libs
     ...THIRD_MODULES,
     // your components
