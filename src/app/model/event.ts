@@ -1,3 +1,4 @@
+const uuid = require('uuid/v4');
 import { IDataItem } from './data';
 
 export interface IEvent {
@@ -49,4 +50,48 @@ export interface IExtraFunction {
     type: string;
     // 更多属性
     [key: string]: any;
+}
+
+export class CompEvent implements IEvent {
+    id: string;
+    type: string;
+    local: ILocalAction;
+    afterRemote: ILocalAction;
+
+    constructor(prop: {
+        id?: string,
+        type: string,
+        local?: ILocalAction,
+        afterRemote?: ILocalAction
+    }) {
+        this.id = prop.id || uuid().replace(/-/g, '');
+        this.type = prop.type;
+        this.local = prop.local || null;
+        this.afterRemote = prop.afterRemote || null;
+    }
+}
+
+export class CompAction implements IAction {
+    id: string;
+    name: string;
+    type: string;
+    comps: string[];
+    filters: IFilterItem[];
+    extraFuncs: IExtraFunction[];
+
+    constructor(prop: {
+        id?: string,
+        name?: string,
+        type?: string,
+        comps?: string[],
+        filters?: IFilterItem[],
+        extraFuncs?: IExtraFunction[]
+    } = {}) {
+        this.id = prop.id || uuid().replace(/-/g, '');
+        this.name = prop.name || '';
+        this.type = prop.type || '';
+        this.comps = prop.comps || [];
+        this.filters = prop.filters || [];
+        this.extraFuncs = prop.extraFuncs || [];
+    }
 }

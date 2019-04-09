@@ -1,6 +1,6 @@
 <div class="fb__edit-wrapper">
   <div class="fb__edit-left">
-    <fb-sketch></fb-sketch>
+    <fb-sketch [pageConfig]="pageConfig" (selectorCompChange)="onComponentSelect($event)"></fb-sketch>
   </div>
   <div class="fb__edit-right">
     <fb-settings></fb-settings>
