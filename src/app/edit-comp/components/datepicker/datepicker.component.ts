@@ -8,7 +8,6 @@ import { IDynamicComponent } from 'app/model/dynamic';
 })
 export class DatepickerComponent implements IDynamicComponent, OnInit {
   config: IDatePicker;
- 
   constructor() { }
 
   ngOnInit() {

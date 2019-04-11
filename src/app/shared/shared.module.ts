@@ -16,6 +16,7 @@ const THIRD_MODULES = [
 
 // #region your componets & directives
 const COMPONENTS = [];
+const PIPES = [];
 const DIRECTIVES = [];
 // #endregion
 
@@ -24,6 +25,7 @@ const DIRECTIVES = [];
   declarations: [
     // your components
     ...COMPONENTS,
+    ...PIPES,
     ...DIRECTIVES
   ],
   imports: [
@@ -43,6 +45,7 @@ const DIRECTIVES = [];
     ...THIRD_MODULES,
     // your components
     ...COMPONENTS,
+    ...PIPES,
     ...DIRECTIVES
   ]
 })

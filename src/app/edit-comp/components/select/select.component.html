@@ -1,3 +1,14 @@
-<p>
-  select works!
-</p>
+<div class="fc__comp-wrapper">
+  <div class="fc__comp-label-wrapper" *ngIf="config.label">
+    <label for="{{config.id}}" class="fc__comp-label" [class.fc__required]="config.required">
+      {{ (config.label ? config.label : 'edit.comp.labelSelectbox') | translate }}
+    </label>
+  </div>
+  <div class="fc__comp-main">
+    <nz-select 
+      [nzPlaceHolder]="config.placeholder | translate" 
+      [nzDisabled]="config.disabled" 
+      [style.width]="'100%'" >
+    </nz-select>
+  </div>
+</div>

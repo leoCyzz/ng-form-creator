@@ -10,7 +10,7 @@ import { SketchService } from '../service/sketch.service';
 export class DynamicComponentDirective implements OnInit, OnChanges, AfterViewInit {
     @Input() config: IComponent;
     @Input() parentId: string;
-
+    @Input() translation: any;
     components = DYNAMIC_COMPONENTS;
     component: ComponentRef<IDynamicComponent>;
 

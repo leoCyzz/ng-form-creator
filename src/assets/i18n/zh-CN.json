@@ -1,3 +1,35 @@
 {
-    "test": "测试"
+    "query": "查询",
+    "clear": "清空",
+    "addPage": "新建页面",
+    "index": {
+        "queryPh": "输入页面名称查询",
+        "table": {
+            "index": "序号",
+            "title": "标题",
+            "updateTime": "更新时间",
+            "operator": "操作",
+            "edit": "编辑",
+            "copy": "复制",
+            "delete": "删除"
+        }
+    },
+    "edit": {
+        "comp": {
+            "buttonText": "按钮",
+            "newPage": "新建页面",
+            "labelInput": "新建文本框",
+            "labelCheckbox": "新建多选框",
+            "checkOptionText": "多选",
+            "labelRadiobox": "新建单选框",
+            "radioOptionText": "单选",
+            "labelSelectbox": "新建下拉框",
+            "selectOptionText": "下拉选择",
+            "labelInputNumber": "新建数字框",
+            "labelDatePicker": "新建时间选择",
+            "labelScale": "新建称重框",
+            "labelUpload": "新建上传",
+            "uploadText": "点击上传"
+        }
+    }
 }

@@ -14,10 +14,15 @@
     border-left: 1px solid #c9c9c9;
 }
 .fc__sketch-wrapper {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .fc__sketch-part {
     flex: 1;
@@ -25,6 +30,7 @@
     flex-direction: column;
     justify-content: space-between;
     border-bottom: 1px solid #c9c9c9;
+    overflow: hidden;
 }
 .fc__sketch-header {
     flex: 0 0 60px;
@@ -43,11 +49,11 @@
     background-color: #ccc;
 }
 .fc__selector-part {
-    flex: 0 0 200px;
+    flex: 0 0 180px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 200px;
+    height: 180px;
 }
 .fc__sketch-container {
     position: relative;
@@ -99,4 +105,42 @@
     border: 1px solid #1890FF;
     background-color: #1890FF;
     color: #fff;
+}
+
+
+.fc__hover-box, .fc__select-box {
+    position: absolute;
+    // background-color: aqua;
+    left: 0;
+    top: 0;
+    border: 1px solid #1890FF;
+}
+.fc__drag-box {
+    position: absolute;
+    border: 1px solid #ccc;
+    background-color: #eee;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.fc__select-box {
+    z-index: 98;
+}
+.fc__select-wrapper {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    right: 8px;
+    top: -8px;
+    color: #1890FF;
+    background-color: #fff;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

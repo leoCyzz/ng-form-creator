@@ -1,3 +1,14 @@
-<p>
-  input-number works!
-</p>
+<div class="fc__comp-wrapper">
+  <div class="fc__comp-label-wrapper" *ngIf="config.label">
+    <label for="{{config.id}}" class="fc__comp-label" [class.fc__required]="config.required">
+      {{ (config.label ? config.label : 'edit.comp.labelInputNumber') | translate }}
+    </label>
+  </div>
+  <div class="fc__comp-main">
+    <nz-input-number [style.width]="'100%'" [id]="config.id"
+      [nzPlaceHolder]="config.placeholder | translate"
+      [nzMax]="config.max" [nzMin]="config.min" [nzStep]="config.step" [nzDisabled]="config.disabled">
+    </nz-input-number>
+  </div>
+</div>
+  

@@ -14,13 +14,13 @@ const SELECTOR_LIST = [
   { type: 'button', text: 'button' },
   { type: 'checkbox', text: 'checkbox' },
   { type: 'container', text: 'container' },
-  { type: 'datePicker', text: 'datepicker' },
+  { type: 'datepicker', text: 'datepicker' },
   { type: 'input', text: 'input' },
-  { type: 'inputNumber', text: 'inputNumber' },
-  { type: 'printbox', text: 'printbox' },
-  { type: 'radiobox', text: 'radiobox' },
-  { type: 'scalebox', text: 'scalebox' },
-  { type: 'selectbox', text: 'selectbox' },
+  { type: 'inputnumber', text: 'inputnumber' },
+  { type: 'print', text: 'print' },
+  { type: 'radio', text: 'radio' },
+  { type: 'scale', text: 'scale' },
+  { type: 'select', text: 'select' },
   { type: 'table', text: 'table' },
   { type: 'upload', text: 'upload' }
 ];
@@ -31,7 +31,6 @@ const SELECTOR_LIST = [
 })
 export class SketchComponent implements OnInit, OnChanges, AfterViewInit {
   @Input() pageConfig: IPage;
-  @Input() translation: any;
   @ViewChild('sketchpad') sketchpad: ElementRef;
   @ViewChild('sketchBody') sketchBody: ElementRef;
   @ViewChild('sketchContainer') sketchContainer: ElementRef;

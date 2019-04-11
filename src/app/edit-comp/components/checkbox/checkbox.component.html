@@ -1,3 +1,21 @@
-<p>
-  checkbox works!
-</p>
+<div class="fc__comp-wrapper">
+  <div class="fc__comp-label-wrapper" *ngIf="config.label">
+    <label for="{{config.id}}" class="fc__comp-label" [class.fc__required]="config.required">
+      {{ (config.label ? config.label : 'edit.comp.labelCheckbox') | translate }}
+    </label>
+  </div>
+  <div class="fc__comp-main">
+    <nz-checkbox-wrapper style="width: 100%;">
+      <div nz-row>
+        <div nz-col [nzSpan]="config.checkOptions.length > 2 ? 8 : (24 / config.checkOptions.length)" 
+          *ngFor="let checkOption of config.checkOptions; let i=index" >
+          <label nz-checkbox [nzValue]="checkOption.value" [nzChecked]="!!checkOption.checked" 
+            [nzDisabled]="config.disabled">
+            {{checkOption.text ? (checkOption.text | translate)
+                              : (('edit.comp.checkOptionText' | translate) + ( i + 1 ))}}
+          </label>
+        </div>
+      </div>
+    </nz-checkbox-wrapper>
+  </div>
+</div>

@@ -7,7 +7,7 @@
     <div class="fc__sketch-body" #sketchBody>
       <div class="fc__sketch-container" zwEditDynamic #sketchContainer>
         <div class="fc__sketch-item" *ngFor="let childConfig of pageConfig.children">
-          <ng-container fcDynamicComponent [config]="childConfig" [parentId]="pageConfig.id"></ng-container>
+          <ng-container fcDynamicComponent [config]="childConfig" [parentId]="pageConfig.id" ></ng-container>
         </div>
       </div>
       <ng-template #hoverTpl></ng-template>

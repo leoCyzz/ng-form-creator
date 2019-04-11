@@ -1,3 +1,17 @@
-<p>
-  upload works!
-</p>
+<div class="fc__comp-wrapper">
+  <div class="fc__comp-label-wrapper" *ngIf="config.label">
+    <label for="{{config.id}}" class="fc__comp-label" [class.fc__required]="config.required">
+      {{ (config.label ? config.label : 'edit.comp.labelUpload') | translate }}
+    </label>
+  </div>
+  <div class="fc__comp-main">
+    <nz-upload 
+      [nzMultiple]="config.multiple"
+      [nzLimit]="config.limit" >
+      <button nz-button >
+        <i nz-icon type="upload"></i>
+        <span>{{ (config.text ? config.text : 'fc.comp.uploadText') | translate }}</span>
+      </button>
+    </nz-upload>
+  </div>
+</div>

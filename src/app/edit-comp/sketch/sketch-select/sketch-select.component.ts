@@ -14,7 +14,7 @@ export class SketchSelectComponent implements OnInit {
     private renderer: Renderer2) { }
 
   ngOnInit() {
-    this.renderer.addClass(this.el.nativeElement, 'fc__sketch-select-box');
+    this.renderer.addClass(this.el.nativeElement, 'fc__select-box');
   }
 
   public setDimension(dimension: ItemDimension) {

@@ -1,3 +1,22 @@
-<p>
-  datepicker works!
-</p>
+<div class="fc__comp-wrapper">
+  <div class="fc__comp-label-wrapper" *ngIf="config.label">
+    <label for="{{config.id}}" class="fc__comp-label" [class.fc__required]="config.required">
+      {{ (config.label ? config.label : 'edit.comp.labelDatePicker') | translate }}
+    </label>
+  </div>
+  <div class="fc__comp-main">
+    <ng-container *ngIf="config.mode === 'single'; else rangeMode">
+      <nz-date-picker
+        [nzFormat]="config.format" [nzPlaceHolder]="config.placeholder1 | translate" 
+        [nzDisabled]="config.disabled" >
+      </nz-date-picker>
+    </ng-container>
+    <ng-template #rangeMode>
+      <nz-range-picker 
+        [nzFormat]="config.format"
+        [nzPlaceHolder]="[config.placeholder1 | translate, config.placeholder2 | translate]" 
+        [nzShowTime]="config.showTime" [nzDisabled]="config.disabled" >
+      </nz-range-picker>
+    </ng-template>
+  </div>
+</div>

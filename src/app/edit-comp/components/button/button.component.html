@@ -1,2 +1,3 @@
 <button class="fb__comp-button" nz-button nzType="{{config.btnType}}" [disabled]="config.disabled">
+    {{(config.text ? config.text : 'edit.comp.buttonText') | translate}}
 </button>

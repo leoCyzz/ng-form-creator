@@ -2,44 +2,52 @@
   <div class="fc__index-head-line">
     <div class="fc__index-search-wrapper">
       <nz-input-group nzSearch  [nzAddOnAfter]="suffixButton" class="fc__index-search-btn">
-        <input type="text" nz-input placeholder="输入页面名称查询" />
+        <input type="text" nz-input [placeholder]="'index.queryPh' | translate" [(ngModel)]="searchValue"/>
       </nz-input-group>
       <ng-template #suffixButton>
-        <button nz-button nzType="primary" nzSearch>查询</button>
+        <button nz-button nzType="primary" nzSearch (click)="getPageList(true)">{{ 'query' | translate }}</button>
       </ng-template>
-      <button nz-button nzType="default">清空</button>
+      <button nz-button nzType="default" (click)="onClearSearchInput()">{{'clear' | translate}}</button>
     </div>
     <button nz-button nzType="primary">
       <i nz-icon nzType="plus" nzTheme="outline"></i>
-      新建页面{{'t1'| translate}}
+      新建页面
     </button>
   </div>
   <div class="fc__index-result-wrapper">
-    <nz-table #nzTable [nzData]="" [nzPageSize]="10">
+    <nz-table #nzTable [nzData]="pageList" nzSize="middle"
+      [nzFrontPagination]="false"
+      [nzLoading]="loading"
+      [nzTotal]="total"
+      [(nzPageIndex)]="pageIndex"
+      [(nzPageSize)]="pageSize"
+      (nzPageIndexChange)="getPageList()">
       <thead>
         <tr>
-          <th>编号</th>
-          <th>序号</th>
-          <th>标题</th>
-          <th>创建者</th>
-          <th>更新时间</th>
-          <th>操作</th>
+          <th>{{'index.table.index' | translate}}</th>
+          <th>{{'index.table.title' | translate}}</th>
+          <th>{{'index.table.updateTime' | translate}}</th>
+          <th>{{'index.table.operator' | translate}}</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let dataItem of nzTable.data; let i = index">
-          <td>
-            <span></span>
-            <span>
-              <label nz-radio ></label>
-            </span>
-          </td>
-          <td>{{ i + 1}}</td>
+        <tr *ngFor="let dataItem of nzTable.data; let i = index" >
+          <td>{{ (nzTable.nzPageIndex - 1) * 10 + i + 1}}</td>
           <td>{{dataItem.title}}</td>
-          <td>{{dataItem.author}}</td>
           <td>{{dataItem.updateTime}}</td>
-          <td>
-            
+          <td class="fc__index-table-operator">
+            <span class="fc__index-table-operator-item fc__index-table-operator-edit">
+              <i nz-icon nzType="edit" nzTheme="outline"></i>
+              <a> {{'index.table.edit' | translate}} </a>
+            </span>
+            <span class="fc__index-table-operator-item fc__index-table-operator-copy">
+              <i nz-icon nzType="copy" nzTheme="outline"></i>
+              <a> {{'index.table.copy' | translate}} </a>
+            </span>
+            <span class="fc__index-table-operator-item fc__index-table-operator-delete">
+              <i nz-icon nzType="delete" nzTheme="outline"></i>
+              <a> {{'index.table.delete' | translate}} </a>
+            </span>
           </td>
         </tr>
       </tbody>

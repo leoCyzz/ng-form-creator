@@ -1,3 +1,8 @@
-<p>
-  container works!
-</p>
+<div class="fc__container-wrapper"
+[class.fc__container-wrapper-hz]="config.layout === 'horizontal'"
+[class.fc__container-wrapper-vt]="config.layout === 'vertical'">
+  <div *ngFor="let childConfig of config.children" class="fc__item-wrapper"
+    [style.width]="(config.layout === 'vertical') ? '100%' : (childConfig.width ? childConfig.width + '%' : '25%' )">
+    <ng-container fcDynamicComponent [config]="childConfig" [parentId]="config.id"></ng-container>
+  </div>
+</div>

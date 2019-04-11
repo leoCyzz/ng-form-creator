@@ -192,6 +192,7 @@ export class ContainerComp extends ComponentBase implements ILayoutComponent {
         children?: IComponent[]
     } = {}) {
         super();
+        this.type = 'container';
         this.layout = prop.layout || 'horizontal';
         this.children = prop.children || [];
     }
@@ -249,7 +250,7 @@ export class CheckboxOption implements ICheckboxOption {
         value?: any,
         checked?: boolean
     } = {}) {
-        this.text = prop.text || '多选';
+        this.text = prop.text || '';
         this.value = prop.value || '';
         this.checked = prop.checked || false;
     }
@@ -369,7 +370,7 @@ export class RadioOption implements IRadioOption {
         text?: string,
         value?: any,
     } = {}) {
-        this.text = prop.text || '单选';
+        this.text = prop.text || '';
         this.value = prop.value || '';
     }
 }
@@ -410,7 +411,7 @@ export class SelectOption implements ISelectOption {
         text?: string,
         value?: any,
     } = {}) {
-        this.text = prop.text || '选择';
+        this.text = prop.text || '';
         this.value = prop.value || '';
     }
 }

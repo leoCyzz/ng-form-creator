@@ -4,6 +4,7 @@ import { environment } from '@env/environment';
 import { LayoutDefaultComponent } from '../layout/default/default.component';
 import { IndexComponent } from './index/index.component';
 import { EditComponent } from './edit/edit.component';
+import { EditResolverService } from './edit/edit-resolver.service';
 
 const routes: Routes = [
   {
@@ -16,9 +17,10 @@ const routes: Routes = [
         path: 'edit',
         children: [
           { path: '', component: EditComponent },
-          { path: ':id', component: EditComponent }
+          { path: ':id', component: EditComponent, resolve: {config: EditResolverService} }
         ]
-      }
+      },
+      { path: 'exception', loadChildren: './exception/exception.module#ExceptionModule' },
     ]
   },
   { path: '**', redirectTo: 'exception/404' }

@@ -1,3 +1,28 @@
-<p>
-  input works!
-</p>
+<div class="fc__comp-wrapper">
+  <div class="fc__comp-label-wrapper" *ngIf="config.label">
+    <label for="{{config.id}}" class="fc__comp-label" [class.fc__required]="config.required">
+      {{ (config.label ? config.label : 'edit.comp.labelInput') | translate }}
+    </label>
+  </div>
+  <div class="fc__comp-main">
+    <ng-container *ngIf="config.readonly; else normalTemplate">
+      <span *ngIf="config.inputType === 'textarea' && config.prefix">{{config.prefix | translate}}</span>
+      <span></span>
+      <span *ngIf="config.inputType === 'textarea' && config.suffix">{{config.suffix | translate}}</span>
+    </ng-container>
+    <ng-template #normalTemplate>
+      <nz-input-group *ngIf="config.inputType !== 'textarea'" nzCompact [style.width]="'100%'" 
+        [nzAddOnBefore]="config.prefix ? (config.prefix | translate) : ''" 
+        [nzAddOnAfter]="config.suffix ? (config.suffix | translate) : ''">
+        <input nz-input [attr.type]="config.inputType" 
+          [placeholder]="(config.placeholder ? ('zwPage.' + config.placeholder) : '')| translate"
+          [id]="config.id">
+      </nz-input-group>
+      <textarea *ngIf="config.inputType === 'textarea'" nz-input [style.width]="'100%'"
+        [id]="config.id" [rows]="config.areaRows || 4"
+        [placeholder]="(config.placeholder ? ('zwPage.' + config.placeholder) : '')| translate" >
+      </textarea>
+    </ng-template>
+  </div>
+</div>
+  
