@@ -20,4 +20,12 @@ export class FormCreatorHttpService {
             .append('id', `${id}`);
         return this.http.get('getEditPageInfo', {params});
     }
+
+    getTableList() {
+        return this.http.get('getTableList');
+    }
+
+    getLocalActionList() {
+        return this.http.get('getLocalActionList');
+    }
 }

@@ -1,3 +1,17 @@
-<p>
-  page works!
-</p>
+<div class="fc__property-line">
+  <label for="title" class="fc__property-label">{{'edit.property.page.title' | translate}}:</label>
+  <nz-select class="fc__property-data" id="title" name="title" nzAllowClear
+    [(ngModel)]="config.title" nzPlaceHolder="" nzShowSearch>
+    <nz-option nzCustomContent nzLabel="{{item.value}}" nzValue="{{item.key}}" *ngFor="let item of transList">
+      {{item.key}}-{{item.value}}
+    </nz-option>
+  </nz-select>
+</div>
+<div class="fc__property-line">
+  <label for="mode" class="fc__property-label">{{'edit.property.page.mode' | translate}}:</label>
+  <nz-select class="fc__property-data" id="mode" name="mode"
+    [(ngModel)]="config.mode" nzPlaceHolder="">
+    <nz-option nzValue="page" nzLabel="Page"></nz-option>
+    <nz-option nzValue="modal" nzLabel="Modal"></nz-option>
+  </nz-select>
+</div>

@@ -3,6 +3,6 @@
     <fc-sketch [pageConfig]="pageConfig" (selectorCompChange)="onComponentSelect($event)"></fc-sketch>
   </div>
   <div class="fc__edit-right">
-    <fc-settings></fc-settings>
+    <fc-settings [pageConfig]="pageConfig" [selectorParams]="selectorCompParams" [dataTables]="dataTables" [localActions]="localActions"></fc-settings>
   </div>
 </div>

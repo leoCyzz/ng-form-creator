@@ -21,6 +21,14 @@ export interface ICompData {
     operator: string;
 }
 
+export interface IDataTable {
+    id: string;
+    name: string;
+    fields: {
+        id: string;
+        name: string;
+    }[];
+}
 
 export class DataGroup implements IDataGroup {
     name: string;

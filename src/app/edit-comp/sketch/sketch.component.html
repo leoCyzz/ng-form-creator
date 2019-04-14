@@ -1,7 +1,7 @@
 <div class="fc__sketch-wrapper" #sketchpad>
   <div class="fc__sketch-part">
     <div class="fc__sketch-header">
-      <span></span>
+      <span>{{(pageConfig.title ? pageConfig.title : 'edit.comp.newPage') | translate }}</span>
       <button (click)="onPageConfigSave($event)" nz-button nzType="primary">保存</button>
     </div>
     <div class="fc__sketch-body" #sketchBody>

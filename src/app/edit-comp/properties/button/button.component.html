@@ -1,3 +1,18 @@
-<p>
-  button works!
-</p>
+<div class="fc__property-line">
+  <label class="fc__property-label">{{'edit.property.btn.text' | translate}}:</label>
+  <nz-select class="fc__property-data" nzAllowClear
+    [(ngModel)]="config.text" nzPlaceHolder="" nzShowSearch>
+    <nz-option nzCustomContent nzLabel="{{item.value}}" nzValue="{{item.key}}" *ngFor="let item of transList">
+      {{item.key}}-{{item.value}}
+    </nz-option>
+  </nz-select>
+</div>
+<div class="fc__property-line">
+  <label class="fc__property-label">{{'edit.property.btn.btnType' | translate}}:</label>
+  <nz-select class="fc__property-data" nzAllowClear
+    [(ngModel)]="config.btnType" nzPlaceHolder="" nzShowSearch>
+    <nz-option nzCustomContent nzLabel="{{item.label | translate}}" nzValue="{{item.value}}" *ngFor="let item of btnTypes">
+      <button nz-button nzType="{{item.value}}" nzBlock [ngClass]="'fc-comp-btn_' + item.value">{{item.label | translate}}</button>
+    </nz-option>
+  </nz-select>
+</div>

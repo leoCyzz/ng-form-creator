@@ -6,12 +6,14 @@ import { ICONS } from 'style-icons';
 import { zip } from 'rxjs';
 import { I18NService } from '@core/i18n/i18n.service';
 import { catchError } from 'rxjs/operators';
+import { ThirdTranslateService } from '@core/net/third-translate.service';
 
 @Injectable()
 export class StartupService {
   constructor(
       iconSrv: NzIconService,
       private translate: TranslateService,
+      private thirdTranslate: ThirdTranslateService,
       private i18n: I18NService,
       private httpClient: HttpClient
   ) {
@@ -33,6 +35,7 @@ export class StartupService {
       this.translate.setTranslation(this.i18n.defaultLang, langData);
       this.translate.setDefaultLang(this.i18n.defaultLang);
       if (translationData.status === 'success') {
+        this.thirdTranslate.setThirdTranslations(translationData.translations);
         const thirdLangData = this.parseTranslation(translationData.translations);
         this.translate.setTranslation(this.i18n.defaultLang, thirdLangData, true);
       }

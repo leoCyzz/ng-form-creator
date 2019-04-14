@@ -11,6 +11,11 @@ import { ButtonPropertyComponent, CheckboxPropertyComponent, ContainerPropertyCo
   DatepickerPropertyComponent, InputPropertyComponent, InputNumberPropertyComponent, PagePropertyComponent,
   PrintPropertyComponent, RadioPropertyComponent, ScalePropertyComponent, SelectPropertyComponent,
   TablePropertyComponent, UploadPropertyComponent } from './properties';
+import { DynamicPropertyDirective } from './directive/dynamic-property.directive';
+import { DataGroupComponent, DataItemComponent } from './properties/common';
+import { DataTableFilterPipe, DataGroupFilterPipe } from './pipe';
+import { ActionModule } from './action/action.module';
+import { EventModule } from './event/event.module';
 
 const EDIT_PAGES = [
   SketchComponent,
@@ -36,7 +41,8 @@ const EDIT_SKETCH = [
   SketchSelectComponent
 ];
 const EDIT_DIRECTIVE = [
-  DynamicComponentDirective
+  DynamicComponentDirective,
+  DynamicPropertyDirective
 ];
 const EDIT_PROPERTIES = [
   ButtonPropertyComponent,
@@ -53,6 +59,14 @@ const EDIT_PROPERTIES = [
   TablePropertyComponent,
   UploadPropertyComponent
 ];
+const EDIT_COMMON = [
+  DataGroupComponent,
+  DataItemComponent
+];
+const EDIT_PIPE = [
+  DataTableFilterPipe,
+  DataGroupFilterPipe
+];
 
 @NgModule({
   declarations: [
@@ -60,21 +74,28 @@ const EDIT_PROPERTIES = [
     ...EDIT_COMPONENTS,
     ...EDIT_SKETCH,
     ...EDIT_DIRECTIVE,
-    ...EDIT_PROPERTIES
+    ...EDIT_PROPERTIES,
+    ...EDIT_COMMON,
+    ...EDIT_PIPE
   ],
   imports: [
-    SharedModule
+    SharedModule,
+    ActionModule,
+    EventModule
   ],
   exports: [
     ...EDIT_PAGES,
     ...EDIT_COMPONENTS,
     ...EDIT_SKETCH,
     ...EDIT_DIRECTIVE,
-    ...EDIT_PROPERTIES
+    ...EDIT_PROPERTIES,
+    ...EDIT_COMMON,
+    ...EDIT_PIPE
   ],
   entryComponents: [
     ...EDIT_COMPONENTS,
     ...EDIT_SKETCH,
+    ...EDIT_PROPERTIES
   ]
 })
 export class EditCompModule { }

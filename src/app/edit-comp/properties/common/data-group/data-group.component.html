@@ -1,0 +1,78 @@
+<nz-collapse nzAccordion="true">
+  <nz-collapse-panel
+    [nzHeader]="'edit.property.page.dataGroup' | translate"
+    [nzActive]="true">
+  <nz-collapse nzAccordion="true"  *ngIf="config.dataGroups.length > 0">
+    <nz-collapse-panel *ngFor="let dataGroup of config.dataGroups; let i=index"
+      [nzHeader]="dataGroup.name ? dataGroup.name : (('edit.property.page.dataGroup' | translate) + (i+1))"
+      [nzExtra]="extraGroupTpl">
+      <ng-template #extraGroupTpl>
+        <i nz-icon nzType="delete" nzTheme="outline" (click)="onDeleteDataGroup($event, i)" class="fc__property-delete-icon"></i>
+      </ng-template>
+
+      <div class="fc__property-line">
+        <label class="fc__property-label">{{'edit.property.name' | translate}}:</label>
+        <input class="fc__property-data" nz-input placeholder="" [(ngModel)]="dataGroup.name" />
+      </div>
+      <div class="fc__property-line">
+        <label class="fc__property-label">{{'edit.property.page.tableName' | translate}}:</label>
+        <nz-select class="fc__property-data" nzAllowClear [(ngModel)]="dataGroup.tableId" nzPlaceHolder="" nzShowSearch>
+          <nz-option nzLabel="{{item.name}}" nzValue="{{item.id}}" *ngFor="let item of dataTables"></nz-option>
+        </nz-select>
+      </div>
+      <div class="fc__property-line">
+        <label for="" class="fc__property-label">{{'edit.property.page.addRecord' | translate}}:</label>
+        <nz-switch class="fc__property-data" [(ngModel)]="dataGroup.addRecord"></nz-switch>
+      </div>
+      <nz-collapse nzAccordion="true">
+        <nz-collapse-panel
+          [nzHeader]="'edit.property.page.fkMap' | translate">
+          <ul class="fc__property-fkmap">
+            <li *ngFor="let fkItem of dataGroup.fkMap; let fkIndex = index" class="fc__property-fkitem">
+              <div class="fc__property-line">
+                <label class="fc__property-label">{{'edit.property.page.fkField' | translate}}:</label>
+                <nz-select class="fc__property-data" nzAllowClear [(ngModel)]="fkItem.fieldId" nzPlaceHolder="" nzShowSearch>
+                  <nz-option nzLabel="{{fieldItem.name}}" nzValue="{{fieldItem.id}}" 
+                    *ngFor="let fieldItem of (dataTables | dataTableFilter:dataGroup.tableId)"></nz-option>
+                </nz-select>
+              </div>
+              <div class="fc__property-line">
+                <label class="fc__property-label">{{'edit.property.page.fkGroupName' | translate}}:</label>
+                <nz-select class="fc__property-data" nzAllowClear [(ngModel)]="fkItem.groupName" nzPlaceHolder="" nzShowSearch>
+                  <nz-option nzLabel="{{groupItem.name}}" nzValue="{{groupItem.name}}" *ngFor="let groupItem of config.dataGroups"></nz-option>
+                </nz-select>
+              </div>
+              <div class="fc__property-line">
+                <i nz-icon nzType="delete" nzTheme="outline" (click)="onDeleteFKMap(i, fkIndex)"  class="fc__property-delete-icon"></i>
+              </div>
+            </li>
+          </ul>
+          <button nz-button nzType="primary" (click)="onAddFKMap($event, i)">
+            <i nz-icon nzType="plus" nzTheme="outline"></i>
+            {{'edit.property.page.addFKMap' | translate}}
+          </button>
+        </nz-collapse-panel>
+        <nz-collapse-panel
+          [nzHeader]="'edit.property.page.uniqueFields' | translate">
+          <div class="fc__property-unique-item" *ngFor="let uniqueItem of dataGroup.uniqueFields; let uIndex = index">
+            <nz-select class="fc__property-data" nzAllowClear [(ngModel)]="dataGroup.uniqueFields[uIndex]" nzPlaceHolder="" nzShowSearch>
+              <nz-option nzLabel="{{fieldItem.name}}" nzValue="{{fieldItem.id}}" 
+                *ngFor="let fieldItem of (dataTables | dataTableFilter:dataGroup.tableId)"></nz-option>
+            </nz-select>
+            <i nz-icon nzType="delete" nzTheme="outline" (click)="onDeleteUniqueFields(i, uIndex)"  class="fc__property-delete-icon fc__property-unique-delete"></i>
+          </div>
+          <button nz-button nzType="primary" (click)="onAddUniqueFields($event, i)">
+            <i nz-icon nzType="plus" nzTheme="outline"></i>
+            {{'edit.property.page.addUniqueFields' | translate}}
+          </button>
+        </nz-collapse-panel>
+      </nz-collapse>
+    </nz-collapse-panel>
+  </nz-collapse>
+  
+  <button class="fc__property-addbtn" nz-button nzType="primary" (click)="onAddDataGroup($event)">
+    <i nz-icon nzType="plus" nzTheme="outline"></i>
+    {{'edit.property.page.addGroup' | translate}}
+  </button>
+  </nz-collapse-panel>
+</nz-collapse>

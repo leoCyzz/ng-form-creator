@@ -1,3 +1,4 @@
+// edit
 .fc__edit-wrapper {
     display: flex;
     flex-direction: row;
@@ -13,6 +14,7 @@
     width: 350px;
     border-left: 1px solid #c9c9c9;
 }
+//sketch
 .fc__sketch-wrapper {
     position: relative;
     display: flex;
@@ -48,13 +50,6 @@
     height: 100%;
     background-color: #ccc;
 }
-.fc__selector-part {
-    flex: 0 0 180px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 180px;
-}
 .fc__sketch-container {
     position: relative;
     // padding: 16px;
@@ -67,6 +62,14 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+// selector
+.fc__selector-part {
+    flex: 0 0 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 180px;
 }
 .fc__selector-header {
     flex: 0 0 40px;
@@ -107,7 +110,7 @@
     color: #fff;
 }
 
-
+// sketch-hover & sketch select & sketch drag
 .fc__hover-box, .fc__select-box {
     position: absolute;
     // background-color: aqua;
@@ -143,4 +146,99 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+// settings
+.fc__settings-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    overflow: hidden;
+}
+.fc__settings-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+}
+.fc__settings-item.open {
+    height: 100%;
+}
+.fc__settings-header {
+    flex: 0 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+}
+.fc__settings-item.open .fc__settings-header {
+    color: #1890FF;
+    font-weight: bold;
+}
+.fc__settings-body {
+    position: relative;
+    display: none;
+    height: 100%;
+    overflow: auto;
+}
+.fc__settings-item.open .fc__settings-body {
+    border-top: 1px solid #ccc;
+    display: block;
+}
+.fc-setting-item-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #c9c9c9;
+}
+.fc-setting-item-head.active {
+    color: #1890FF;
+    font-weight: bold;
+}
+
+
+// property
+.fc__property-line {
+    display: flex;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+.fc__property-label {
+    flex: 0 0 80px;
+}
+.fc__property-data {
+    flex: 1;
+}
+.fc__property-error {
+    color: #ff4d4f;
+    display: none;
+}
+.fc__property-error.is-error {
+    display: block;
+}
+.fc__property-collapse {
+    width: 100%;
+}
+.fc__property-fkitem {
+    padding: 8px 8px 4px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.fc__property-addbtn {
+    margin-top: 8px;
+}
+.fc__property-delete-icon {
+    color: #ff4d4f;
+    cursor: pointer;
+}
+.fc__property-unique-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.fc__property-unique-delete {
+    margin-left: 8px;
 }

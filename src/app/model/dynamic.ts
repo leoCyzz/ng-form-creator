@@ -1,8 +1,15 @@
-import { IComponent } from './component';
 import { Type } from '@angular/core';
+import { IPage } from './page';
+import { IComponent } from './component';
 import { ButtonComponent, ContainerComponent, CheckboxComponent, DatepickerComponent,
     InputComponent, InputNumberComponent, PrintComponent, ScaleComponent, SelectComponent,
     TableComponent, UploadComponent, RadioComponent } from '../edit-comp/components';
+import { ButtonPropertyComponent, ContainerPropertyComponent, InputPropertyComponent,
+    CheckboxPropertyComponent, InputNumberPropertyComponent, TablePropertyComponent,
+    UploadPropertyComponent, PagePropertyComponent, SelectPropertyComponent,
+    RadioPropertyComponent, DatepickerPropertyComponent, ScalePropertyComponent,
+    PrintPropertyComponent } from 'app/edit-comp/properties';
+import { IDataTable } from './data';
 
 export interface IEditDynamic {
     config: IComponent;
@@ -37,4 +44,26 @@ export const DYNAMIC_COMPONENTS: { [type: string]: Type<IDynamicComponent> } = {
     table: TableComponent,
     upload: UploadComponent
 };
+
+export interface IDynamicProperty {
+    config: IComponent | IPage;
+    transList: {key: string, value: string}[];
+    dataTables: IDataTable[];
+    localActions: string[];
+}
+
+export const DYNAMIC_PROPERTIES: { [type: string]: Type<IDynamicProperty> } = {
+    button: ButtonPropertyComponent,
+    container: ContainerPropertyComponent,
+    input: InputPropertyComponent,
+    checkbox: CheckboxPropertyComponent,
+    select: SelectPropertyComponent,
+    radio: RadioPropertyComponent,
+    inputnumber: InputNumberPropertyComponent,
+    datepicker: DatepickerPropertyComponent,
+    table: TablePropertyComponent,
+    scale: ScalePropertyComponent,
+    print: PrintPropertyComponent,
+    upload: UploadPropertyComponent,
+    page: PagePropertyComponent};
 

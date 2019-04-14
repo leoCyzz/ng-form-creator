@@ -30,6 +30,41 @@
             "labelScale": "新建称重框",
             "labelUpload": "新建上传",
             "uploadText": "点击上传"
+        },
+        "property": {
+            "name": "名称",
+            "page": {
+                "title": "标题",
+                "mode": "类型",
+                "page": "页面",
+                "modal": "模态框",
+                "dataGroup": "数据组",
+                "addGroup": "增加数据项",
+                "tableName": "表名",
+                "addRecord": "允许新增",
+                "fkMap": "关联表",
+                "addFKMap": "增加关联表",
+                "fkField": "关联字段",
+                "fkGroupName": "被关联表",
+                "uniqueFields": "唯一性字段",
+                "addUniqueFields": "增加字段"
+            },
+            "btn": {
+                "text": "文本",
+                "btnType": "样式",
+                "type": {
+                    "default": "默认",
+                    "primary": "首选项",
+                    "success": "成功",
+                    "info": "信息",
+                    "warning": "警告",
+                    "danger": "危险",
+                    "link": "链接"
+                }
+            }
+        },
+        "error": {
+            "nameRepeat": "Name不可重复"
         }
     }
 }
