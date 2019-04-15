@@ -59,7 +59,7 @@ export class SettingsComponent implements OnInit, OnChanges {
       this.currentEvents = this.currentIsContainer ? [] : config.events;
       this.currentType = isPage ? 'page' : (config as IComponent).type;
       this.title = this.currentType.substring(0, 1).toUpperCase() + this.currentType.substring(1);
-      this.hasDataItem = this.currentType !== 'container';
+      this.hasDataItem = this.currentType !== 'container' && this.currentType !== 'button';
       this.currentCompName = this.currentCompConfig.name;
     } else {
       if (isPage || (config as IComponent).type === 'container') {

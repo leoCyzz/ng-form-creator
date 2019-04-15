@@ -49,6 +49,18 @@
                 "uniqueFields": "唯一性字段",
                 "addUniqueFields": "增加字段"
             },
+            "common": {
+                "visible": "是否可见",
+                "width": "宽度",
+                "label": "标签",
+                "labelWidth": "标签宽度",
+                "required": "是否必填",
+                "disabled": "是否禁用",
+                "add": "增加一项",
+                "checkOrNot": "设置默认选中",
+                "addOne": "增加一项",
+                "removeOne": "移除一项"
+            },
             "btn": {
                 "text": "文本",
                 "btnType": "样式",
@@ -62,6 +74,7 @@
                     "link": "链接"
                 }
             }
+            
         },
         "error": {
             "nameRepeat": "Name不可重复"

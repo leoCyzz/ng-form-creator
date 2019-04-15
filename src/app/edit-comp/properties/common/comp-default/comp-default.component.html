@@ -1,0 +1,9 @@
+<div class="fc__property-line">
+  <label for="" class="fc__property-label">{{'edit.property.common.visible' | translate}}:</label>
+  <nz-switch class="fc__property-data" [(ngModel)]="config.visible"></nz-switch>
+</div>
+<div class="fc__property-line">
+  <label for="areaRows" class="fc__property-label">{{'edit.property.common.width' | translate}}:</label>
+  <nz-input-number class="fc__property-data" [(ngModel)]="config.width" [nzMin]="1" [nzMax]="100"
+    [nzStep]="1"></nz-input-number>
+</div>

@@ -11,6 +11,7 @@
           [nzActive]="true"
           [nzShowArrow] = "false"
           #commonSetting>
+          <!-- name -->
           <div class="fc__property-line">
             <label for="name" class="fc__property-label">{{'edit.property.name' | translate}}:</label>
             <div class="fc__property-data">
@@ -19,6 +20,10 @@
               <p class="fc__property-error" [class.is-error]="isNameError">{{'edit.error.nameRepeat' | translate}}</p>
             </div>
           </div>
+          <fc-comp-default *ngIf="currentType !== 'page'" [config]="currentCompConfig"></fc-comp-default>
+          <fc-form-default *ngIf="hasDataItem && currentType !== 'page'" [config]="currentCompConfig" 
+            [transList]="currentTranslateList"></fc-form-default>
+          <!-- self-property -->
           <ng-container fcDynamicProperty [config]="currentCompConfig" [type]="currentType" [transList]="currentTranslateList"
             [dataTables]="dataTables" [localActions]="localActions"></ng-container>
           <ng-template #commonTpl>

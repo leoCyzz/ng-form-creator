@@ -12,7 +12,7 @@
   <nz-select class="fc__property-data" nzAllowClear
     [(ngModel)]="config.btnType" nzPlaceHolder="" nzShowSearch>
     <nz-option nzCustomContent nzLabel="{{item.label | translate}}" nzValue="{{item.value}}" *ngFor="let item of btnTypes">
-      <button nz-button nzType="{{item.value}}" nzBlock [ngClass]="'fc-comp-btn_' + item.value">{{item.label | translate}}</button>
+      <button nz-button nzType="{{item.value}}" nzBlock [ngClass]="'fc-comp-btn-' + item.value">{{item.label | translate}}</button>
     </nz-option>
   </nz-select>
 </div>

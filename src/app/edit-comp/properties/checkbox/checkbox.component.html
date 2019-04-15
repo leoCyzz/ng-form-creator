@@ -1,3 +1,37 @@
-<p>
-  checkbox works!
-</p>
+<nz-collapse>
+  <nz-collapse-panel #p [nzHeader]="collapseHeader" [nzShowArrow]="false">
+    <ul class="fc__property-data-ul">
+      <li *ngFor="let checkOption of config.checkOptions; let i=index">
+        <!-- text -->
+        <nz-select name="optionText" class="fc__property-data-list-item"
+          [(ngModel)]="checkOption.text" nzPlaceHolder="" nzAllowClear nzShowSearch >
+          <nz-option nzCustomContent nzLabel="{{item.value}}" nzValue="{{item.key}}" *ngFor="let item of transList">
+            {{item.key}}-{{item.value}}
+          </nz-option>
+        </nz-select>
+        
+        <div class="fc__property-data-list-item">
+          <!-- value -->
+          <input class="fc__property-option-value" nz-input [(ngModel)]="checkOption.value" name="optionValue" placeholder="">
+          <!-- checked -->
+          <nz-switch class="fc__property-option-switch" [(ngModel)]="checkOption.checked" nz-tooltip [nzTitle]="'edit.property.common.checkOrNot' | translate"></nz-switch>
+          <!-- add & delete -->
+          <i nz-icon class="fc__property-option-icon fc__property-option-icon-plus" nz-tooltip [nzTitle]="'edit.property.common.addOne' | translate"
+            type="plus-circle" theme="outline" (click)="onAddCheckOption(i)"></i>
+          <i nz-icon class="fc__property-option-icon fc__property-option-icon-delete" nz-tooltip [nzTitle]="'edit.property.common.removeOne' | translate"
+            type="delete" theme="outline" (click)="onRemoveCheckOption(i)"></i>
+        </div>
+      </li>
+    </ul>
+    <button nz-button nzType="primary" (click)="onAddCheckOption(0)">
+      <i nz-icon type="plus" theme="outline"></i>
+      {{ 'edit.property.common.add' | translate }}
+    </button>
+    <ng-template #collapseHeader let-active>
+      <div class="zw-property__collapse-header">
+        <span>Options:</span>
+        <i nz-icon theme="fill" type="caret-right" [nzRotate]="p.nzActive ? 90 : 0"></i>
+      </div>
+    </ng-template>
+  </nz-collapse-panel>
+</nz-collapse>

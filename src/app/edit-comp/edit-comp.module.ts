@@ -16,6 +16,8 @@ import { DataGroupComponent, DataItemComponent } from './properties/common';
 import { DataTableFilterPipe, DataGroupFilterPipe } from './pipe';
 import { ActionModule } from './action/action.module';
 import { EventModule } from './event/event.module';
+import { FormDefaultComponent } from './properties/common/form-default/form-default.component';
+import { CompDefaultComponent } from './properties/common/comp-default/comp-default.component';
 
 const EDIT_PAGES = [
   SketchComponent,
@@ -61,7 +63,9 @@ const EDIT_PROPERTIES = [
 ];
 const EDIT_COMMON = [
   DataGroupComponent,
-  DataItemComponent
+  DataItemComponent,
+  CompDefaultComponent,
+  FormDefaultComponent,
 ];
 const EDIT_PIPE = [
   DataTableFilterPipe,
@@ -76,7 +80,9 @@ const EDIT_PIPE = [
     ...EDIT_DIRECTIVE,
     ...EDIT_PROPERTIES,
     ...EDIT_COMMON,
-    ...EDIT_PIPE
+    ...EDIT_PIPE,
+    FormDefaultComponent,
+    CompDefaultComponent
   ],
   imports: [
     SharedModule,

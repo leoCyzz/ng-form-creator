@@ -109,21 +109,11 @@ export class SketchComponent implements OnInit, OnChanges, AfterViewInit {
 
       if (this.isDraging) {
         this.updateMousePlaceholder(e);
-        if (this.isInnerComponent(e, this.sketchBody)) {
-          // update 页面
+        if (this.isInnerComponent(e, this.sketchBody) && this.isInnerComponent(e, this.sketchContainer)) {
           const hoverComp = this.getSketchComponent(e);
           if (hoverComp === null) {
-            // 判断是不是在container内
-            if (this.isInnerComponent(e, this.sketchContainer)) {
-              // 鼠标在页面的空白处
-              this.currentHoverItemId = this.pageConfig.id;
-              this.updateDraggingPlace(e, this.pageConfig, true);
-            } else {
-              // 鼠标在页面的灰色margin处
-              this.removeTempPlaceholder(this.pageConfig);
-              this.currentHoverItemId = '';
-              this.tempDragPos = { parentId: null, index: -1 };
-            }
+            this.currentHoverItemId = this.pageConfig.id;
+            this.updateDraggingPlace(e, this.pageConfig, true);
           } else {
             if (hoverComp.config.id !== this.currentDragConfig.id && hoverComp.config.id !== this.currentHoverItemId) {
               this.currentHoverItemId = hoverComp.config.id;
@@ -138,16 +128,21 @@ export class SketchComponent implements OnInit, OnChanges, AfterViewInit {
               // 如果不是 且hoverComp的type 不为container时 wrapper为hoverComp的parent
               // 计算鼠标在wrapper中的大概位置
               // 遍历wrapper第一级子组件 获取位置
-              const wrapper = hoverComp.config.type === 'container'
-                            ? hoverComp
-                            : this.sketchService.editComps.get(hoverComp.parentId);
-              if (wrapper) {
-                this.updateDraggingPlace(e, wrapper.config);
+              if (hoverComp.config.type !== 'container' && hoverComp.parentId === '') {
+                this.currentHoverItemId = this.pageConfig.id;
+                this.updateDraggingPlace(e, this.pageConfig, true);
+              } else {
+                const wrapper = hoverComp.config.type === 'container' ? hoverComp : this.sketchService.editComps.get(hoverComp.parentId);
+                if (wrapper) {
+                  this.updateDraggingPlace(e, wrapper.config);
+                }
               }
             }
           }
         } else {
+          // 位置在页面灰色margin处或者在sketchBody之外
           this.removeTempPlaceholder(this.pageConfig);
+          this.currentHoverItemId = '';
           this.tempDragPos = { parentId: null, index: -1 };
         }
       }

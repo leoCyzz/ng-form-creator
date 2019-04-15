@@ -1,0 +1,22 @@
+<div class="fc__property-line" *ngIf="config.label">
+  <label for="label" class="fc__property-label">{{'edit.property.common.label' | translate}}:</label>
+  <nz-select class="fc__property-data" id="label" name="label" nzAllowClear
+    [(ngModel)]="config.label" nzPlaceHolder="" nzShowSearch>
+    <nz-option nzCustomContent nzLabel="{{item.value}}" nzValue="{{item.key}}" *ngFor="let item of transList">
+      {{item.key}}-{{item.value}}
+    </nz-option>
+  </nz-select>
+</div>
+<div class="fc__property-line" *ngIf="config.label">
+  <label for="areaRows" class="fc__property-label">{{'edit.property.common.labelWidth' | translate}}:</label>
+  <nz-input-number class="fc__property-data" [(ngModel)]="config.labelWidth" [nzMin]="1" [nzMax]="50"
+    [nzStep]="1"></nz-input-number>
+</div>
+<div class="fc__property-line">
+  <label for="" class="fc__property-label">{{'edit.property.common.required' | translate}}:</label>
+  <nz-switch class="fc__property-data" [(ngModel)]="config.required"></nz-switch>
+</div>
+<div class="fc__property-line">
+  <label for="" class="fc__property-label">{{'edit.property.common.disabled' | translate}}:</label>
+  <nz-switch class="fc__property-data" [(ngModel)]="config.disabled"></nz-switch>
+</div>

@@ -11,6 +11,7 @@ export class DynamicComponentDirective implements OnInit, OnChanges, AfterViewIn
     @Input() config: IComponent;
     @Input() parentId: string;
     @Input() translation: any;
+    @Input() isDraging: boolean;
     components = DYNAMIC_COMPONENTS;
     component: ComponentRef<IDynamicComponent>;
 
@@ -41,6 +42,7 @@ export class DynamicComponentDirective implements OnInit, OnChanges, AfterViewIn
     }
 
     ngAfterViewInit(): void {
+        if (this.isDraging) { return; }
         this.sketchService.addComponent(this);
     }
 }
