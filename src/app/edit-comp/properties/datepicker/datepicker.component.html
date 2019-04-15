@@ -1,3 +1,45 @@
-<p>
-  datepicker works!
-</p>
+<div class="fc__property-line">
+  <label for="label" class="fc__property-label">{{'edit.property.datepicker.mode' | translate}}:</label>
+  <nz-select class="fc__property-data" id="label" name="label"  [(ngModel)]="config.mode" nzPlaceHolder="">
+    <nz-option [nzValue]="'single'" [nzLabel]="'edit.property.datepicker.single' | translate"></nz-option>
+    <nz-option [nzValue]="'range'" [nzLabel]="'edit.property.datepicker.range' | translate"></nz-option>
+  </nz-select>
+</div>
+<div class="fc__property-line">
+  <label class="fc__property-label">{{'edit.property.datepicker.placeholder1' | translate}}:</label>
+  <nz-select class="fc__property-data" nzAllowClear [(ngModel)]="config.placeholder1" nzPlaceHolder="" nzShowSearch>
+    <nz-option nzCustomContent nzLabel="{{item.value}}" nzValue="{{item.key}}" *ngFor="let item of transList">
+      {{item.key}}-{{item.value}}
+    </nz-option>
+  </nz-select>
+</div>
+<div class="fc__property-line" *ngIf="config.mode=== 'range'">
+  <label class="fc__property-label">{{'edit.property.datepicker.placeholder2' | translate}}:</label>
+  <nz-select class="fc__property-data" nzAllowClear [(ngModel)]="config.placeholder2" nzPlaceHolder="" nzShowSearch>
+    <nz-option nzCustomContent nzLabel="{{item.value}}" nzValue="{{item.key}}" *ngFor="let item of transList">
+      {{item.key}}-{{item.value}}
+    </nz-option>
+  </nz-select>
+</div>
+<div class="fc__property-line">
+  <label for="" class="fc__property-label">{{'edit.property.datepicker.showTime' | translate}}:</label>
+  <nz-switch class="fc__property-data" [(ngModel)]="config.showTime"></nz-switch>
+</div>
+<div class="fc__property-line">
+  <label for="label" class="fc__property-label">{{'edit.property.datepicker.format' | translate}}:</label>
+  <nz-select class="fc__property-data" id="label" name="label"  [(ngModel)]="config.format" nzPlaceHolder="">
+    <nz-option nzValue="YYYY/MM/DD" nzLabel="YYYY/MM/DD"></nz-option>
+    <nz-option nzValue="MM/DD" nzLabel="MM/DD"></nz-option>
+    <nz-option *ngIf="config.showTime" nzValue="YYYY/MM/DD HH:mm:ss" nzLabel="YYYY/MM/DD HH:mm:ss"></nz-option>
+    <nz-option *ngIf="config.showTime" nzValue="YYYY/MM/DD HH:mm" nzLabel="YYYY/MM/DD HH:mm"></nz-option>
+    <nz-option *ngIf="config.showTime" nzValue="MM/DD HH:mm" nzLabel="MM/DD HH:mm"></nz-option>
+  </nz-select>
+</div>
+<div class="fc__property-line">
+  <label class="fc__property-label">{{'edit.property.datepicker.initDate1' | translate}}:</label>
+  <input class="fc__property-data" nz-input placeholder="" [(ngModel)]="config.initDate1" />
+</div>
+<div class="fc__property-line" *ngIf="config.mode=== 'range'">
+  <label class="fc__property-label">{{'edit.property.datepicker.initDate2' | translate}}:</label>
+  <input class="fc__property-data" nz-input placeholder="" [(ngModel)]="config.initDate2" />
+</div>

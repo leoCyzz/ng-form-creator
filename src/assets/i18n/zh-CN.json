@@ -59,7 +59,12 @@
                 "add": "增加一项",
                 "checkOrNot": "设置默认选中",
                 "addOne": "增加一项",
-                "removeOne": "移除一项"
+                "removeOne": "移除一项",
+                "optionText": "显示文本",
+                "optionValue": "选项值",
+                "optionChecked": "默认选中",
+                "defaultValue": "默认值",
+                "placeholder": "输入提示"
             },
             "btn": {
                 "text": "文本",
@@ -73,6 +78,40 @@
                     "danger": "危险",
                     "link": "链接"
                 }
+            },
+            "checkbox": {
+                "options": "选项组"
+            },
+            "container": {
+                "layout": "排列方向",
+                "horizontal": "水平方向",
+                "vertical": "竖直方向"
+            },
+            "datepicker": {
+                "mode": "显示类型",
+                "single": "单个日期",
+                "range": "日期范围",
+                "placeholder1": "输入提示1",
+                "placeholder2": "输入提示2",
+                "showTime": "显示时间",
+                "format": "日期格式",
+                "initDate1": "初始时间1",
+                "initDate2": "初始时间2"
+            },
+            "input": {
+                "inputType": "类型",
+                "text": "文本",
+                "password": "密码",
+                "textarea": "文本域",
+                "readonly": "是否只读",
+                "arearows": "行高",
+                "prefix": "前缀",
+                "suffix": "后缀"
+            },
+            "inputnumber": {
+                "max": "最大值",
+                "min": "最小值",
+                "step": "步进"
             }
             
         },

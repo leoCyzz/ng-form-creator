@@ -18,8 +18,9 @@ export class CheckboxPropertyComponent implements IDynamicProperty, OnInit {
   ngOnInit() {
   }
 
-  onAddCheckOption(i: number) {
-    this.config.checkOptions.splice(i + 1, 0, new CheckboxOption());
+  onAddCheckOption(index: number) {
+    const addIndex = index ? index + 1 : this.config.checkOptions.length;
+    this.config.checkOptions.splice(addIndex, 0, new CheckboxOption());
   }
 
   onRemoveCheckOption(i: number) {

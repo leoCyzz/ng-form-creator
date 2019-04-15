@@ -291,7 +291,7 @@ export class DatepickerComp extends FormComponentBase implements IDatePicker {
         this.placeholder1 = prop.placeholder1 || '';
         this.placeholder2 = prop.placeholder2 || '';
         this.showTime = prop.showTime || false;
-        this.format = prop.format || '';
+        this.format = prop.format || 'YYYY/MM/DD';
         this.initDate1 = prop.initDate1 || '';
         this.initDate2 = prop.initDate2 || '';
     }

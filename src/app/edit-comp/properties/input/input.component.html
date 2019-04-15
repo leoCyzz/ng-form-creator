@@ -1,3 +1,45 @@
-<p>
-  input works!
-</p>
+<div class="fc__property-line">
+  <label for="label" class="fc__property-label">{{'edit.property.input.inputType' | translate}}:</label>
+  <nz-select class="fc__property-data" id="label" name="label"  [(ngModel)]="config.inputType" nzPlaceHolder="">
+    <nz-option [nzValue]="'text'" [nzLabel]="'edit.property.input.text' | translate"></nz-option>
+    <nz-option [nzValue]="'password'" [nzLabel]="'edit.property.input.password' | translate"></nz-option>
+    <nz-option [nzValue]="'textarea'" [nzLabel]="'edit.property.input.textarea' | translate"></nz-option>
+  </nz-select>
+</div>
+<div class="fc__property-line">
+  <label class="fc__property-label">{{'edit.property.common.placeholder' | translate}}:</label>
+  <nz-select class="fc__property-data" nzAllowClear [(ngModel)]="config.placeholder" nzPlaceHolder="" nzShowSearch>
+    <nz-option nzCustomContent nzLabel="{{item.value}}" nzValue="{{item.key}}" *ngFor="let item of transList">
+      {{item.key}}-{{item.value}}
+    </nz-option>
+  </nz-select>
+</div>
+<div class="fc__property-line">
+  <label class="fc__property-label">{{'edit.property.common.defaultValue' | translate}}:</label>
+  <input class="fc__property-data" nz-input placeholder="" [(ngModel)]="config.defaultValue" />
+</div>
+<div class="fc__property-line">
+  <label class="fc__property-label">{{'edit.property.input.readonly' | translate}}:</label>
+  <nz-switch class="fc__property-data" [(ngModel)]="config.readonly"></nz-switch>
+</div>
+<div class="fc__property-line" *ngIf="config.inputType === 'textarea'">
+  <label class="fc__property-label">{{'edit.property.input.arearows' | translate}}:</label>
+  <nz-input-number class="fc__property-data" [(ngModel)]="config.areaRows" [nzMin]="1" [nzMax]="5"
+    [nzStep]="1"></nz-input-number>
+</div>
+<div class="fc__property-line" *ngIf="config.inputType !== 'textarea'">
+  <label class="fc__property-label">{{'edit.property.input.prefix' | translate}}:</label>
+  <nz-select class="fc__property-data"  nzAllowClear [(ngModel)]="config.prefix" nzPlaceHolder="" nzShowSearch>
+    <nz-option nzCustomContent nzLabel="{{item.value}}" nzValue="{{item.key}}" *ngFor="let item of transList">
+      {{item.key}}-{{item.value}}
+    </nz-option>
+  </nz-select>
+</div>
+<div class="fc__property-line" *ngIf="config.inputType !== 'textarea'">
+  <label class="fc__property-label">{{'edit.property.input.suffix' | translate}}:</label>
+  <nz-select class="fc__property-data" nzAllowClear [(ngModel)]="config.suffix" nzPlaceHolder="" nzShowSearch>
+    <nz-option nzCustomContent nzLabel="{{item.value}}" nzValue="{{item.key}}" *ngFor="let item of transList">
+      {{item.key}}-{{item.value}}
+    </nz-option>
+  </nz-select>
+</div>

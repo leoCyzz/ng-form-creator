@@ -1,37 +1,38 @@
-<nz-collapse>
-  <nz-collapse-panel #p [nzHeader]="collapseHeader" [nzShowArrow]="false">
-    <ul class="fc__property-data-ul">
-      <li *ngFor="let checkOption of config.checkOptions; let i=index">
-        <!-- text -->
-        <nz-select name="optionText" class="fc__property-data-list-item"
-          [(ngModel)]="checkOption.text" nzPlaceHolder="" nzAllowClear nzShowSearch >
-          <nz-option nzCustomContent nzLabel="{{item.value}}" nzValue="{{item.key}}" *ngFor="let item of transList">
-            {{item.key}}-{{item.value}}
-          </nz-option>
-        </nz-select>
-        
-        <div class="fc__property-data-list-item">
-          <!-- value -->
-          <input class="fc__property-option-value" nz-input [(ngModel)]="checkOption.value" name="optionValue" placeholder="">
-          <!-- checked -->
-          <nz-switch class="fc__property-option-switch" [(ngModel)]="checkOption.checked" nz-tooltip [nzTitle]="'edit.property.common.checkOrNot' | translate"></nz-switch>
-          <!-- add & delete -->
-          <i nz-icon class="fc__property-option-icon fc__property-option-icon-plus" nz-tooltip [nzTitle]="'edit.property.common.addOne' | translate"
-            type="plus-circle" theme="outline" (click)="onAddCheckOption(i)"></i>
-          <i nz-icon class="fc__property-option-icon fc__property-option-icon-delete" nz-tooltip [nzTitle]="'edit.property.common.removeOne' | translate"
-            type="delete" theme="outline" (click)="onRemoveCheckOption(i)"></i>
+<nz-collapse nzAccordion="true">
+  <nz-collapse-panel
+    [nzHeader]="'edit.property.checkbox.options' | translate"
+    [nzActive]="true">
+    <ul>
+      <li class="fc__property-option-item" *ngFor="let checkOption of config.checkOptions; let i = index">
+        <div class="fc__property-line">
+          <label class="fc__property-label">{{'edit.property.common.optionText' | translate}}:</label>
+          <nz-select class="fc__property-data" nzAllowClear [(ngModel)]="checkOption.text" nzPlaceHolder="" nzShowSearch>
+            <nz-option nzCustomContent nzLabel="{{item.value}}" nzValue="{{item.key}}" *ngFor="let item of transList">
+              {{item.key}}-{{item.value}}
+            </nz-option>
+          </nz-select>
+        </div>
+        <div class="fc__property-line">
+          <label class="fc__property-label">{{'edit.property.common.optionValue' | translate}}:</label>
+          <input class="fc__property-data" nz-input placeholder="" [(ngModel)]="checkOption.value" />
+        </div>
+        <div class="fc__property-line">
+          <label for="" class="fc__property-label">{{'edit.property.common.optionChecked' | translate}}:</label>
+          <div class="fc__property-data fc__property-data-group">
+            <nz-switch  [(ngModel)]="checkOption.checked"></nz-switch>
+            <div class="fc__property-option-btn-group">
+              <i nz-icon class="fc__property-option-icon fc__property-option-icon-plus" nz-tooltip [nzTitle]="'edit.property.common.addOne' | translate"
+                type="plus-circle" theme="outline" (click)="onAddCheckOption(i)"></i>
+              <i nz-icon class="fc__property-option-icon fc__property-option-icon-delete" nz-tooltip [nzTitle]="'edit.property.common.removeOne' | translate"
+                type="delete" theme="outline" (click)="onRemoveCheckOption(i)"></i>
+            </div>
+          </div>
         </div>
       </li>
     </ul>
-    <button nz-button nzType="primary" (click)="onAddCheckOption(0)">
-      <i nz-icon type="plus" theme="outline"></i>
-      {{ 'edit.property.common.add' | translate }}
+    <button nz-button nzType="primary" (click)="onAddCheckOption()">
+      <i nz-icon nzType="plus" nzTheme="outline"></i>
+      {{'edit.property.common.add' | translate}}
     </button>
-    <ng-template #collapseHeader let-active>
-      <div class="zw-property__collapse-header">
-        <span>Options:</span>
-        <i nz-icon theme="fill" type="caret-right" [nzRotate]="p.nzActive ? 90 : 0"></i>
-      </div>
-    </ng-template>
   </nz-collapse-panel>
 </nz-collapse>

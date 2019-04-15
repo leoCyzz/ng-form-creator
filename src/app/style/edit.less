@@ -108,8 +108,8 @@
     user-select: none;
 }
 .fc__selector-item:hover {
-    border: 1px solid #1890FF;
-    background-color: #1890FF;
+    border: 1px solid #1890ff;
+    background-color: #1890ff;
     color: #fff;
 }
 
@@ -119,7 +119,7 @@
     // background-color: aqua;
     left: 0;
     top: 0;
-    border: 1px solid #1890FF;
+    border: 1px solid #1890ff;
 }
 .fc__drag-box {
     position: absolute;
@@ -143,7 +143,7 @@
     font-size: 16px;
     right: 8px;
     top: -8px;
-    color: #1890FF;
+    color: #1890ff;
     background-color: #fff;
     border-radius: 16px;
     display: flex;
@@ -176,7 +176,7 @@
     padding: 8px;
 }
 .fc__settings-item.open .fc__settings-header {
-    color: #1890FF;
+    color: #1890ff;
     font-weight: bold;
 }
 .fc__settings-body {
@@ -196,11 +196,9 @@
     color: #c9c9c9;
 }
 .fc-setting-item-head.active {
-    color: #1890FF;
+    color: #1890ff;
     font-weight: bold;
 }
-
-
 // property
 .fc__property-line {
     display: flex;
@@ -245,8 +243,37 @@
 .fc__property-unique-delete {
     margin-left: 8px;
 }
-
+.fc__property-data-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.fc__property-option-item {
+    padding: 4px 0;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #ccc;
+}
+.fc__property-option-icon {
+    font-size: 20px;
+    margin-right: 8px;
+    cursor: pointer;
+}
+.fc__property-option-icon-plus {
+    color: #1890ff;
+}
+.fc__property-option-icon-delete {
+    color: #ff4d4f;
+}
 // comp
+.fc__comp-required::before {
+    display: inline-block;
+    margin-right: 4px;
+    content: '*';
+    font-family: SimSun;
+    line-height: 1;
+    font-size: 14px;
+    color: #f5222d;
+}
 .fc__container-wrapper {
     display: flex;
     border: 1px dashed #ccc;
@@ -267,4 +294,36 @@
     width: 100%;
     margin-bottom: 10px;
     background-color: #fff;
+}
+.fc__comp-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8px;
+    min-height: 32px;
+}
+.fc__comp-wrapper.fc__comp-textarea-wrapper {
+    align-items: flex-start;
+}
+.fc__comp-label-wrapper {
+    flex: 0 0 60px;
+}
+.fc__comp-label {
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+}
+.fc__comp-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    min-height: 32px;
+}
+.fc_comp-input-readonly {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.fc_comp-input-readonly-addon {
+    margin: 0 4px;
 }

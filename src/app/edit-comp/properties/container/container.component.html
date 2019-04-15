@@ -1,3 +1,8 @@
-<p>
-  container works!
-</p>
+<div class="fc__property-line">
+  <label for="label" class="fc__property-label">{{'edit.property.container.layout' | translate}}:</label>
+  <nz-select class="fc__property-data" id="label" name="label" nzAllowClear
+    [(ngModel)]="config.layout" nzPlaceHolder="" nzShowSearch>
+    <nz-option [nzValue]="'horizontal'" [nzLabel]="'edit.property.container.horizontal' | translate"></nz-option>
+    <nz-option [nzValue]="'vertical'" [nzLabel]="'edit.property.container.vertical' | translate"></nz-option>
+  </nz-select>
+</div>
