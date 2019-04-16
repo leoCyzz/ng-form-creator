@@ -59,9 +59,9 @@ export class PageConfig implements IPage {
         this.updateTime = prop.updateTime || '';
         this.children = prop.children || [];
         this.events = prop.events || [];
-        this.remotes = prop.remotes || null;
+        this.remotes = prop.remotes || {};
         this.dataGroups = prop.dataGroups || [];
-        this.dataItems = prop.dataItems || null;
+        this.dataItems = prop.dataItems || {};
         this.actions = prop.actions || [];
     }
 }

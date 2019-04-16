@@ -38,15 +38,13 @@
           [nzHeader]="dataTpl"
           [nzShowArrow] = "false"
           #dataSetting>
-          <div class="fc__property-line">
-            <ng-container *ngIf="hasDataItem && currentType === 'page'; else dataItemTemplate">
-              <fc-data-group [config]="currentCompConfig" [dataTables]="dataTables" class="fc__property-collapse"></fc-data-group>
-            </ng-container>
-            <ng-template #dataItemTemplate>
-              <fc-data-item [config]="pageConfig" [dataTables]="dataTables" [compId]="currentCompConfig.id"></fc-data-item>
-            </ng-template>
-          </div>
-          
+          <ng-container *ngIf="hasDataItem && currentType === 'page'; else dataItemTemplate">
+            <fc-data-group [config]="currentCompConfig" [dataTables]="dataTables" class="fc__property-collapse"></fc-data-group>
+          </ng-container>
+          <ng-template #dataItemTemplate>
+            <fc-data-item [config]="pageConfig" [dataTables]="dataTables" [compId]="currentCompConfig.id"></fc-data-item>
+          </ng-template>
+        
           <ng-template #dataTpl>
             <div class="fc-setting-item-head" [class.active]="dataSetting.nzActive">
               <span>Data</span>
@@ -55,9 +53,11 @@
           </ng-template>
         </nz-collapse-panel>
         <nz-collapse-panel
+          *ngIf="currentType !== 'container'"
           [nzHeader]="eventTpl"
           [nzShowArrow] = "false"
           #eventSetting>
+          <fc-event [config]="currentCompConfig" [remote]="pageConfig.remotes[currentCompConfig.id]"></fc-event>
           <ng-template #eventTpl>
             <div class="fc-setting-item-head" [class.active]="eventSetting.nzActive">
               <span>Event</span>

@@ -40,17 +40,7 @@
                 "title": "标题",
                 "mode": "类型",
                 "page": "页面",
-                "modal": "模态框",
-                "dataGroup": "数据组",
-                "addGroup": "增加数据项",
-                "tableName": "表名",
-                "addRecord": "允许新增",
-                "fkMap": "关联表",
-                "addFKMap": "增加关联表",
-                "fkField": "关联字段",
-                "fkGroupName": "被关联表",
-                "uniqueFields": "唯一性字段",
-                "addUniqueFields": "增加字段"
+                "modal": "模态框"
             },
             "common": {
                 "visible": "是否可见",
@@ -135,6 +125,20 @@
                 "hasSerialNumber": "序号列"
             }
             
+        },
+        "data": {
+            "dataGroup": "数据组",
+            "addGroup": "增加数据项",
+            "tableName": "表名",
+            "addRecord": "允许新增",
+            "fkMap": "关联表",
+            "addFKMap": "增加关联表",
+            "fkField": "关联字段",
+            "fkGroupName": "被关联表",
+            "uniqueFields": "唯一性字段",
+            "addUniqueFields": "增加字段",
+            "groupName": "数据名",
+            "fieldId": "字段名"
         },
         "error": {
             "nameRepeat": "Name不可重复"
