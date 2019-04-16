@@ -1,16 +1,21 @@
 <div class="fc__comp-wrapper">
-  <div class="fc__comp-label-wrapper" *ngIf="config.label">
+  <div class="fc__comp-label-wrapper" *ngIf="config.label" 
+    [style.flex]="'0 0 ' + (config.labelWidth ? config.labelWidth + '%' : '20%')">
     <label for="{{config.id}}" class="fc__comp-label" [class.fc__required]="config.required">
       {{ (config.label ? config.label : 'edit.comp.labelRadiobox') | translate }}
     </label>
   </div>
   <div class="fc__comp-main">
-    <nz-radio-group>
-      <label *ngFor="let radioOption of config.radioOptions; let i=index" nz-radio 
-        [nzValue]="radioOption.value" [nzDisabled]="config.disabled">
-        {{radioOption.text ? (radioOption.text | translate)
-                          : (('edit.comp.radioOptionText' | translate) + ( i + 1 ))}}
-      </label>
+    <nz-radio-group style="width: 100%;" [(ngModel)]="config.defaultValue">
+      <div nz-row>
+        <div nz-col [nzSpan]="config.radioOptions.length > 2 ? 8 : (24 / config.radioOptions.length)" 
+          *ngFor="let radioOption of config.radioOptions; let i=index" >
+          <label  nz-radio [nzValue]="radioOption.value" [nzDisabled]="config.disabled">
+            {{radioOption.text ? (radioOption.text | translate) 
+              : (('edit.comp.radioOptionText' | translate) + ( i + 1 ))}}
+          </label>
+        </div>
+      </div>
     </nz-radio-group>
   </div>
 </div>

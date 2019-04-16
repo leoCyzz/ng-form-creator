@@ -1,3 +1,13 @@
-<p>
-  data-item works!
-</p>
+<div class="fc__property-line">
+  <label class="fc__property-label">{{'edit.property.data.groupName' | translate}}:</label>
+  <nz-select class="fc__property-data" nzAllowClear [(ngModel)]="dataItem.data.groupName" nzPlaceHolder="" nzShowSearch>
+    <nz-option nzLabel="{{groupItem.name}}" nzValue="{{groupItem.name}}" *ngFor="let groupItem of config.dataGroups"></nz-option>
+  </nz-select>
+</div>
+<div class="fc__property-line">
+  <label class="fc__property-label">{{'edit.property.data.fieldId' | translate}}:</label>
+  <nz-select class="fc__property-data" nzAllowClear [(ngModel)]="dataItem.data.fieldId" nzPlaceHolder="" nzShowSearch>
+    <nz-option *ngFor="let fieldItem of (dataTables | dataTableFilter: (config.dataGroups | dataGroupFilter: dataItem.data.groupName))" 
+      nzLabel="{{fieldItem.name}}" nzValue="{{fieldItem.id}}" ></nz-option>
+  </nz-select>
+</div>

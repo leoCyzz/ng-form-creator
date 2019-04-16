@@ -1,5 +1,6 @@
 <div class="fc__comp-wrapper">
-  <div class="fc__comp-label-wrapper" *ngIf="config.label">
+  <div class="fc__comp-label-wrapper" *ngIf="config.label" 
+    [style.flex]="'0 0 ' + (config.labelWidth ? config.labelWidth + '%' : '20%')">
     <label for="{{config.id}}" class="fc__comp-label" [class.fc__required]="config.required">
       {{ (config.label ? config.label : 'edit.comp.labelUpload') | translate }}
     </label>
@@ -10,7 +11,7 @@
       [nzLimit]="config.limit" >
       <button nz-button >
         <i nz-icon type="upload"></i>
-        <span>{{ (config.text ? config.text : 'fc.comp.uploadText') | translate }}</span>
+        <span>{{ (config.text ? config.text : 'edit.comp.uploadText') | translate }}</span>
       </button>
     </nz-upload>
   </div>

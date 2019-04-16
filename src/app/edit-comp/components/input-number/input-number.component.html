@@ -1,5 +1,6 @@
 <div class="fc__comp-wrapper">
-  <div class="fc__comp-label-wrapper" *ngIf="config.label">
+  <div class="fc__comp-label-wrapper" *ngIf="config.label" 
+    [style.flex]="'0 0 ' + (config.labelWidth ? config.labelWidth + '%' : '20%')">
     <label for="{{config.id}}" class="fc__comp-label" [class.fc__required]="config.required">
       {{ (config.label ? config.label : 'edit.comp.labelInputNumber') | translate }}
     </label>

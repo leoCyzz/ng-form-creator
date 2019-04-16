@@ -29,7 +29,10 @@
             "labelDatePicker": "新建时间选择",
             "labelScale": "新建称重框",
             "labelUpload": "新建上传",
-            "uploadText": "点击上传"
+            "uploadText": "点击上传",
+            "printText": "打印控件",
+            "scaleText": "新建称重框",
+            "tableSerialNumber": "序号"
         },
         "property": {
             "name": "名称",
@@ -60,6 +63,7 @@
                 "checkOrNot": "设置默认选中",
                 "addOne": "增加一项",
                 "removeOne": "移除一项",
+                "options": "选项组",
                 "optionText": "显示文本",
                 "optionValue": "选项值",
                 "optionChecked": "默认选中",
@@ -80,7 +84,7 @@
                 }
             },
             "checkbox": {
-                "options": "选项组"
+                
             },
             "container": {
                 "layout": "排列方向",
@@ -112,6 +116,23 @@
                 "max": "最大值",
                 "min": "最小值",
                 "step": "步进"
+            },
+            "print": {
+                "printTimes": "打印次数",
+                "tempName": "模板名称",
+                "height": "模板高度"
+            },
+            "scale": {
+                "isAuto": "自动称重",
+                "socketAddr": "socket地址"
+            },
+            "upload": {
+                "text": "按钮文本",
+                "size": "上传文件限制"
+            },
+            "table": {
+                "hasCheckbox": "多选列",
+                "hasSerialNumber": "序号列"
             }
             
         },

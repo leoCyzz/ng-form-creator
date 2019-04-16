@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IRadio } from 'app/model/component';
+import { IRadio, RadioOption } from 'app/model/component';
 import { IDynamicProperty } from 'app/model/dynamic';
 import { IDataTable } from 'app/model/data';
 
@@ -18,4 +18,12 @@ export class RadioPropertyComponent implements IDynamicProperty, OnInit {
   ngOnInit() {
   }
 
+  onAddRadioOption(index: number) {
+    const addIndex = index ? index + 1 : this.config.radioOptions.length;
+    this.config.radioOptions.splice(addIndex, 0, new RadioOption());
+  }
+
+  onRemoveRadioOption(i: number) {
+    this.config.radioOptions.splice(i, 1);
+  }
 }

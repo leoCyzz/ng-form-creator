@@ -43,7 +43,7 @@
               <fc-data-group [config]="currentCompConfig" [dataTables]="dataTables" class="fc__property-collapse"></fc-data-group>
             </ng-container>
             <ng-template #dataItemTemplate>
-              <fc-data-item [config]="currentCompConfig" [dataTables]="dataTables" [dataGroups]="pageConfig.dataGroups"></fc-data-item>
+              <fc-data-item [config]="pageConfig" [dataTables]="dataTables" [compId]="currentCompConfig.id"></fc-data-item>
             </ng-template>
           </div>
           

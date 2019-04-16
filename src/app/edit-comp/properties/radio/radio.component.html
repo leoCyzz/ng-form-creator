@@ -1,3 +1,40 @@
-<p>
-  radio works!
-</p>
+<div class="fc__property-line">
+  <label class="fc__property-label">{{'edit.property.common.defaultValue' | translate}}:</label>
+  <input class="fc__property-data" nz-input placeholder="" [(ngModel)]="config.defaultValue" />
+</div>
+<nz-collapse nzAccordion="true">
+  <nz-collapse-panel
+    [nzHeader]="'edit.property.common.options' | translate"
+    [nzActive]="true">
+    <ul>
+      <li class="fc__property-option-item" *ngFor="let radioOption of config.radioOptions; let i = index">
+        <div class="fc__property-line">
+          <label class="fc__property-label">{{'edit.property.common.optionText' | translate}}:</label>
+          <nz-select class="fc__property-data" nzAllowClear [(ngModel)]="radioOption.text" nzPlaceHolder="" nzShowSearch>
+            <nz-option nzCustomContent nzLabel="{{item.value}}" nzValue="{{item.key}}" *ngFor="let item of transList">
+              {{item.key}}-{{item.value}}
+            </nz-option>
+          </nz-select>
+        </div>
+        <div class="fc__property-line">
+          <label class="fc__property-label">{{'edit.property.common.optionValue' | translate}}:</label>
+          <input class="fc__property-data" nz-input placeholder="" [(ngModel)]="radioOption.value" />
+        </div>
+        <div class="fc__property-line">
+          <div class="fc__property-data fc__property-data-group">
+            <div class="fc__property-option-btn-group">
+              <i nz-icon class="fc__property-option-icon fc__property-option-icon-plus" nz-tooltip [nzTitle]="'edit.property.common.addOne' | translate"
+                type="plus-circle" theme="outline" (click)="onAddRadioOption(i)"></i>
+              <i nz-icon class="fc__property-option-icon fc__property-option-icon-delete" nz-tooltip [nzTitle]="'edit.property.common.removeOne' | translate"
+                type="delete" theme="outline" (click)="onRemoveRadioOption(i)"></i>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <button nz-button nzType="primary" (click)="onAddRadioOption()">
+      <i nz-icon nzType="plus" nzTheme="outline"></i>
+      {{'edit.property.common.add' | translate}}
+    </button>
+  </nz-collapse-panel>
+</nz-collapse>

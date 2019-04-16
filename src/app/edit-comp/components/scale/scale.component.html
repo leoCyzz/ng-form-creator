@@ -1,3 +1,17 @@
-<p>
-  scale works!
-</p>
+<div class="fc__comp-wrapper">
+  <div class="fc__comp-label-wrapper" *ngIf="config.label" 
+    [style.flex]="'0 0 ' + (config.labelWidth ? config.labelWidth + '%' : '20%')">
+    <label for="{{config.id}}" class="fc__comp-label" [class.fc__required]="config.required">
+      {{ (config.label ? config.label : 'edit.comp.scaleText') | translate }}
+    </label>
+  </div>
+  <div class="fc__comp-main">
+    <nz-input-group [nzAddOnAfter]="suffixIconButton" 
+      [ngClass]="config.isAuto ? 'fc__comp-scale-unlock' : 'fc__comp-scale-lock'">
+      <input type="text" nz-input [placeholder]="config.placeholder | translate" />
+    </nz-input-group>
+    <ng-template #suffixIconButton>
+      <i nz-icon [nzType]="config.isAuto ? 'unlock' : 'lock'" nzTheme="outline"></i>
+    </ng-template>
+  </div>
+</div>

@@ -84,10 +84,9 @@ export class CompData implements ICompData {
     operator: string;
 
     constructor(prop: {
-        id: string,
         data?: IDataItem,
         operator?: string
-    }) {
+    } = {}) {
         this.data = prop.data || new DataItem();
         this.operator = prop.operator || '';
     }

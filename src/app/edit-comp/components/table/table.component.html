@@ -1,3 +1,13 @@
-<p>
-  table works!
-</p>
+<nz-table
+  nzShowPagination>
+  <thead>
+    <tr>
+      <th *ngIf="config.hasCheckkbox" nzShowCheckbox></th>
+      <th *ngIf="config.hasSerialNumber">{{'edit.comp.tableSerialNumber' | translate}}</th>
+      <th *ngFor="let columnItem of config.columns">
+        {{ columnItem.title | translate}}
+      </th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</nz-table>

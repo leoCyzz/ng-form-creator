@@ -1,3 +1,14 @@
-<p>
-  print works!
-</p>
+<div class="fc__property-line">
+  <label class="fc__property-label">{{'edit.property.print.printTimes' | translate}}:</label>
+  <nz-input-number class="fc__property-data" [(ngModel)]="config.printTimes" [nzMin]="1" [nzMax]="10"
+    [nzStep]="1"></nz-input-number>
+</div>
+<div class="fc__property-line">
+  <label class="fc__property-label">{{'edit.property.print.tempName' | translate}}:</label>
+  <input class="fc__property-data" nz-input placeholder="" [(ngModel)]="config.tempName" />
+</div>
+<div class="fc__property-line">
+  <label class="fc__property-label">{{'edit.property.print.height' | translate}}:</label>
+  <nz-input-number class="fc__property-data" [(ngModel)]="config.height" [nzMin]="1" [nzMax]="200"
+    [nzStep]="1"></nz-input-number>
+</div>

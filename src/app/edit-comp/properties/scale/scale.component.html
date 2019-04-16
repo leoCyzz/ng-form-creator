@@ -1,3 +1,20 @@
-<p>
-  scale works!
-</p>
+<div class="fc__property-line">
+  <label class="fc__property-label">{{'edit.property.scale.isAuto' | translate}}:</label>
+  <nz-switch class="fc__property-data" [(ngModel)]="config.isAuto"></nz-switch>
+</div>
+<div class="fc__property-line">
+  <label class="fc__property-label">{{'edit.property.common.placeholder' | translate}}:</label>
+  <nz-select class="fc__property-data" nzAllowClear [(ngModel)]="config.placeholder" nzPlaceHolder="" nzShowSearch>
+    <nz-option nzCustomContent nzLabel="{{item.value}}" nzValue="{{item.key}}" *ngFor="let item of transList">
+      {{item.key}}-{{item.value}}
+    </nz-option>
+  </nz-select>
+</div>
+<div class="fc__property-line">
+  <label class="fc__property-label">{{'edit.property.common.defaultValue' | translate}}:</label>
+  <input class="fc__property-data" nz-input placeholder="" [(ngModel)]="config.defaultValue" />
+</div>
+<div class="fc__property-line">
+  <label class="fc__property-label">{{'edit.property.scale.socketAddr' | translate}}:</label>
+  <input class="fc__property-data" nz-input placeholder="" [(ngModel)]="config.socketAddr" />
+</div>
