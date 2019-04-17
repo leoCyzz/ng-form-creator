@@ -60,12 +60,12 @@ export class CompEvent implements IEvent {
 
     constructor(prop: {
         id?: string,
-        type: string,
+        type?: string,
         local?: ILocalAction,
         afterRemote?: ILocalAction
-    }) {
+    } = {}) {
         this.id = prop.id || uuid().replace(/-/g, '');
-        this.type = prop.type;
+        this.type = prop.type || '';
         this.local = prop.local || null;
         this.afterRemote = prop.afterRemote || null;
     }
@@ -93,5 +93,15 @@ export class CompAction implements IAction {
         this.comps = prop.comps || [];
         this.filters = prop.filters || [];
         this.extraFuncs = prop.extraFuncs || [];
+    }
+}
+
+export class PageRemoteAction implements IRemoteAction {
+    queue: string[];
+
+    constructor(prop: {
+        queue?: string[]
+    } = {}) {
+        this.queue = prop.queue || [];
     }
 }

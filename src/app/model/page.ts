@@ -1,10 +1,13 @@
+const uuid = require('uuid/v4');
 import { IDataGroup, ICompData } from './data';
-import { IEvent, IAction, IRemoteAction } from './event';
+import { IEvent, IAction, IRemoteAction, PageRemoteAction } from './event';
 import { IComponent } from './component';
 
 export interface IPage {
-    // 页面Id
+    // 页面Id(数据库使用)
     id: string;
+    // 页面Id(前端使用)
+    pageId: string;
     name: string;
     // 页面标题-i18n
     title: string;
@@ -17,7 +20,7 @@ export interface IPage {
     // 页面事件
     events: IEvent[];
     // 页面HttpAction集合
-    remotes: {[key: string]: IRemoteAction};
+    remotes: {[key: string]: { [key: string]: IRemoteAction }};
     // 页面数据库模型
     dataGroups: IDataGroup[];
     // 页面所有组件数据模型
@@ -28,38 +31,41 @@ export interface IPage {
 
 export class PageConfig implements IPage {
     id: string;
+    pageId: string;
     name: string;
     title: string;
     mode: string;
     updateTime: string;
     children: IComponent[];
     events: IEvent[];
-    remotes: { [key: string]: IRemoteAction };
+    remotes: { [key: string]: { [key: string]: IRemoteAction } };
     dataGroups: IDataGroup[];
     dataItems: { [key: string]: ICompData };
     actions: IAction[];
 
     constructor(prop: {
         id?: string;
+        pageId?: string;
         name?: string;
         title?: string;
         mode?: string;
         updateTime?: string;
         children?: IComponent[];
         events?: IEvent[];
-        remotes?: { [key: string]: IRemoteAction };
+        remotes?: { [key: string]: { [key: string]: IRemoteAction } };
         dataGroups?: IDataGroup[];
         dataItems?: { [key: string]: ICompData };
         actions?: IAction[];
     } = {}) {
         this.id = prop.id || '';
+        this.pageId = prop.pageId || uuid().replace(/-/g, '');
         this.name = prop.name || '';
         this.title = prop.title || '';
         this.mode = prop.mode || 'page';
         this.updateTime = prop.updateTime || '';
         this.children = prop.children || [];
         this.events = prop.events || [];
-        this.remotes = prop.remotes || {};
+        this.remotes = prop.remotes || { [this.pageId]: {} };
         this.dataGroups = prop.dataGroups || [];
         this.dataItems = prop.dataItems || {};
         this.actions = prop.actions || [];

@@ -140,6 +140,13 @@
             "groupName": "数据名",
             "fieldId": "字段名"
         },
+        "event": {
+            "type": "类型",
+            "addEvent": "增加Event"
+        },
+        "action": {
+
+        },
         "error": {
             "nameRepeat": "Name不可重复"
         }

@@ -225,6 +225,7 @@ export class SketchComponent implements OnInit, OnChanges, AfterViewInit {
         this.currentSelectItem = compDirective;
         // 更新对应comp对应dataItem 和 remotes
         this.pageConfig.dataItems[compDirective.config.id] = new CompData();
+        this.pageConfig.remotes[compDirective.config.id] = {};
         // Event 触发
         this.selectorCompChange.emit({selectorId: compDirective.config.id, parentId: compDirective.parentId});
       }

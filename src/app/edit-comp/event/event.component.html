@@ -1,6 +1,16 @@
-<div class="fc__property-line">
-  <label for="label" class="fc__property-label">{{'edit.event.type' | translate}}:</label>
-  <!-- <nz-select class="fc__property-data" id="label" name="label"  [(ngModel)]="''" nzPlaceHolder="">
-    <nz-option [nzValue]="'text'" [nzLabel]="'edit.property.input.text' | translate"></nz-option>
-  </nz-select> -->
-</div>
+<nz-collapse nzAccordion="true" *ngIf="events.length > 0">
+  <nz-collapse-panel *ngFor="let eventItem of events; let i = index"
+    [nzHeader]="eventItem.type || 'event'">
+    <div class="fc__property-line">
+      <label for="label" class="fc__property-label">{{'edit.event.type' | translate}}:</label>
+      <nz-select class="fc__property-data" id="label" name="label"  [(ngModel)]="eventItem.type" nzPlaceHolder="">
+        <nz-option *ngFor="let eventTypeItem of eventTypes; let j = index" 
+          nzLabel="{{ eventTypes[j] }}" nzValue="{{ eventTypes[j] }}"></nz-option>
+      </nz-select>
+    </div>
+  </nz-collapse-panel>
+</nz-collapse>
+<button class="fc__property-addbtn" nz-button nzType="primary" (click)="onAddEvent()">
+  <i nz-icon nzType="plus" nzTheme="outline"></i>
+  {{'edit.event.addEvent' | translate}}
+</button>
