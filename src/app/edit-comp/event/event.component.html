@@ -8,6 +8,46 @@
           nzLabel="{{ eventTypes[j] }}" nzValue="{{ eventTypes[j] }}"></nz-option>
       </nz-select>
     </div>
+    <nz-collapse nzAccordion="true">
+      <nz-collapse-panel 
+      [nzHeader]="'edit.event.local' | translate">
+      <div class="fc__property-line">
+        <label class="fc__property-label">{{'edit.event.name' | translate}}:</label>
+        <nz-select class="fc__property-data"  [(ngModel)]="eventItem.local.name" nzPlaceHolder="">
+          <nz-option *ngFor="let localActionItem of localActions; let k = index" 
+          nzLabel="{{ localActions[k] }}" nzValue="{{ localActions[k] }}"></nz-option>
+        </nz-select>
+      </div>
+      <nz-collapse>
+        <nz-collapse-panel
+          [nzHeader]="'edit.event.comps' | translate">
+          <div class="fc__property-unique-item" *ngFor="let compItem of eventItem.local.comps; let cIndex = index">
+            <nz-select class="fc__property-data" nzAllowClear [(ngModel)]="eventItem.local.comps[uIndex]" nzPlaceHolder="" nzShowSearch>
+              <nz-option *ngFor="let fieldItem of (dataTables | dataTableFilter:dataGroup.tableId)" 
+                nzLabel="{{fieldItem.name}}" nzValue="{{fieldItem.id}}" ></nz-option>
+            </nz-select>
+            <i nz-icon nzType="delete" nzTheme="outline" (click)="onDeleteUniqueFields(i, uIndex)"  class="fc__property-delete-icon fc__property-unique-delete"></i>
+          </div>
+          <button nz-button nzType="primary" (click)="onAddUniqueFields($event, i)">
+            <i nz-icon nzType="plus" nzTheme="outline"></i>
+            {{'edit.data.addUniqueFields' | translate}}
+          </button>
+        </nz-collapse-panel>
+      </nz-collapse>
+    </nz-collapse-panel>
+    </nz-collapse>
+    <nz-collapse nzAccordion="true">
+      <nz-collapse-panel 
+      [nzHeader]="'edit.event.afterRemote' | translate">
+      <div class="fc__property-line">
+        <label class="fc__property-label">{{'edit.event.name' | translate}}:</label>
+        <nz-select class="fc__property-data"  [(ngModel)]="eventItem.afterRemote.name" nzPlaceHolder="">
+          <nz-option *ngFor="let localActionItem of localActions; let m = index" 
+          nzLabel="{{ localActions[m] }}" nzValue="{{ localActions[m] }}"></nz-option>
+        </nz-select>
+      </div>
+    </nz-collapse-panel>
+    </nz-collapse>
   </nz-collapse-panel>
 </nz-collapse>
 <button class="fc__property-addbtn" nz-button nzType="primary" (click)="onAddEvent()">

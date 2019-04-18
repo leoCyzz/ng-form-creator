@@ -57,7 +57,7 @@
           [nzHeader]="eventTpl"
           [nzShowArrow] = "false"
           #eventSetting>
-          <fc-event [config]="currentCompConfig" [remotes]="pageConfig.remotes"></fc-event>
+          <fc-event [config]="currentCompConfig" [remotes]="pageConfig.remotes" [localActions]="localActions"></fc-event>
           <ng-template #eventTpl>
             <div class="fc-setting-item-head" [class.active]="eventSetting.nzActive">
               <span>Event</span>

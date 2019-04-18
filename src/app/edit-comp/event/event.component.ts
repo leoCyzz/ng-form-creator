@@ -24,6 +24,7 @@ const COMP_EVENT = {
 export class EventComponent implements OnInit, OnChanges {
   @Input() config: IComponent | IPage;
   @Input() remotes: {};
+  @Input() localActions: string[];
   events: IEvent[];
   remote: { [key: string]: IRemoteAction };
   eventTypes = [];
