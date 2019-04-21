@@ -1,5 +1,5 @@
 const uuid = require('uuid/v4');
-import { IDataGroup, ICompData } from './data';
+import { IDataGroup, IOperatorData } from './data';
 import { IEvent, IAction, IRemoteAction, PageRemoteAction } from './event';
 import { IComponent } from './component';
 
@@ -24,9 +24,11 @@ export interface IPage {
     // 页面数据库模型
     dataGroups: IDataGroup[];
     // 页面所有组件数据模型
-    dataItems: {[key: string]: ICompData};
+    dataItems: {[key: string]: IOperatorData};
     // 页面执行http请求的Action
     actions: IAction[];
+
+    actionItems: { [key: string]: string[] };
 }
 
 export class PageConfig implements IPage {
@@ -40,8 +42,9 @@ export class PageConfig implements IPage {
     events: IEvent[];
     remotes: { [key: string]: { [key: string]: IRemoteAction } };
     dataGroups: IDataGroup[];
-    dataItems: { [key: string]: ICompData };
+    dataItems: { [key: string]: IOperatorData };
     actions: IAction[];
+    actionItems: { [key: string]: string[] };
 
     constructor(prop: {
         id?: string;
@@ -54,8 +57,9 @@ export class PageConfig implements IPage {
         events?: IEvent[];
         remotes?: { [key: string]: { [key: string]: IRemoteAction } };
         dataGroups?: IDataGroup[];
-        dataItems?: { [key: string]: ICompData };
+        dataItems?: { [key: string]: IOperatorData };
         actions?: IAction[];
+        actionItems?: { [key: string]: string[] };
     } = {}) {
         this.id = prop.id || '';
         this.pageId = prop.pageId || uuid().replace(/-/g, '');
@@ -69,5 +73,6 @@ export class PageConfig implements IPage {
         this.dataGroups = prop.dataGroups || [];
         this.dataItems = prop.dataItems || {};
         this.actions = prop.actions || [];
+        this.actionItems = prop.actionItems || {};
     }
 }

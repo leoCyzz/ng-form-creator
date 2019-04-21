@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IPage } from 'app/model/page';
-import { DataGroup, IDataTable, FKItem } from 'app/model/data';
+import { DataGroup, IDataTable, DataItem } from 'app/model/data';
 import { EditService } from 'app/edit-comp/service/edit.service';
 
 @Component({
@@ -27,7 +27,7 @@ export class DataGroupComponent implements OnInit {
   }
 
   onAddFKMap(e: Event, index: number) {
-    this.config.dataGroups[index].fkMap.push(new FKItem());
+    this.config.dataGroups[index].fkMap.push(new DataItem());
   }
 
   onDeleteFKMap(index: number, fkIndex: number) {

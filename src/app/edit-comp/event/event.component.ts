@@ -25,6 +25,7 @@ export class EventComponent implements OnInit, OnChanges {
   @Input() config: IComponent | IPage;
   @Input() remotes: {};
   @Input() localActions: string[];
+  @Input() compNames: {id: string, name: string}[];
   events: IEvent[];
   remote: { [key: string]: IRemoteAction };
   eventTypes = [];
@@ -44,5 +45,9 @@ export class EventComponent implements OnInit, OnChanges {
 
   onAddEvent() {
     this.events.push(new CompEvent());
+  }
+
+  onDeleteEvent(index: number) {
+    this.events.splice(index, 1);
   }
 }

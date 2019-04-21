@@ -6,8 +6,6 @@ import { IDataTable } from 'app/model/data';
 })
 export class EditService {
     private compNames: string[] = [];
-    private dataTables: IDataTable[] = [];
-    private localActions: string[] = [];
 
     isRepeat(name: string) {
         return this.compNames.indexOf(name) !== -1;
@@ -24,21 +22,5 @@ export class EditService {
         if (index !== -1) {
             this.compNames.splice(index, 1);
         }
-    }
-
-    setDataTables(data: IDataTable[]) {
-        this.dataTables = data;
-    }
-
-    getDataTables() {
-        return this.dataTables;
-    }
-
-    setLocalActions(actions: string[]) {
-        this.localActions = actions;
-    }
-
-    getLocalActions() {
-        return this.localActions;
     }
 }

@@ -138,7 +138,20 @@
             "uniqueFields": "唯一性字段",
             "addUniqueFields": "增加字段",
             "groupName": "数据名",
-            "fieldId": "字段名"
+            "fieldId": "字段名",
+            "operator": "操作符",
+            "value": "值",
+            "Equals": "=(等于)",
+            "GreaterThan": ">(大于)",
+            "LessThan": "<(小于)",
+            "GreaterEqual": "≥(大于等于)",
+            "LessEqual": "≤(小于等于)",
+            "NotEqual": "≠(不等于)",
+            "Include": "⊂(包含)",
+            "BelongTo": "∈(属于)",
+            "Similar": "∼(相似)",
+            "Exist": "∃(存在)",
+            "Equivalent": "≡(等于,区分大小写)"
         },
         "event": {
             "type": "类型",
@@ -149,7 +162,26 @@
             "comps": "组件集合"
         },
         "action": {
-
+            "addAction": "增加Action",
+            "defaultAction": "action",
+            "type": "类型",
+            "comps": "组件",
+            "filter": "过滤条件",
+            "addFilter": "增加Filter",
+            "extraScript": "额外Script",
+            "addExtraScript": "增加Script",
+            "templateId": "模板Id",
+            "importName": "导入名称",
+            "printItem": "打印字段",
+            "addPrintItem": "增加打印字段",
+            "resultItem": "ResultItem",
+            "fileName": "文件名",
+            "defaultDataList": "默认值",
+            "addDefaultDataItem": "增加默认项",
+            "transfers": "Transfers",
+            "addTransferItem": "增加TransferItem",
+            "keyName": "KeyName",
+            "itemName": "ItemName"
         },
         "error": {
             "nameRepeat": "Name不可重复"

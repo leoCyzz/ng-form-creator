@@ -9,7 +9,7 @@ import { IComponent, ILayoutComponent, ButtonComp, ContainerComp, InputComp, Che
 import { SketchHoverComponent, SketchDragComponent, SketchSelectComponent } from '.';
 import { SketchService } from 'app/edit-comp/service/sketch.service';
 import { RawPosition, ItemDimension } from 'app/model/dynamic';
-import { CompData } from 'app/model/data';
+import { DataItem } from 'app/model/data';
 
 const SELECTOR_LIST = [
   { type: 'button', text: 'button' },
@@ -224,7 +224,7 @@ export class SketchComponent implements OnInit, OnChanges, AfterViewInit {
         this.createSelectPlaceholder(compDirective, pos);
         this.currentSelectItem = compDirective;
         // 更新对应comp对应dataItem 和 remotes
-        this.pageConfig.dataItems[compDirective.config.id] = new CompData();
+        this.pageConfig.dataItems[compDirective.config.id] = new DataItem();
         this.pageConfig.remotes[compDirective.config.id] = {};
         // Event 触发
         this.selectorCompChange.emit({selectorId: compDirective.config.id, parentId: compDirective.parentId});

@@ -42,7 +42,8 @@
             <fc-data-group [config]="currentCompConfig" [dataTables]="dataTables" class="fc__property-collapse"></fc-data-group>
           </ng-container>
           <ng-template #dataItemTemplate>
-            <fc-data-item [config]="pageConfig" [dataTables]="dataTables" [compId]="currentCompConfig.id"></fc-data-item>
+            <fc-operator-data [dataItem]="pageConfig.dataItems[currentCompConfig.id]" [dataTables]="dataTables"
+              [dataGroups]="pageConfig.dataGroups" [hasOperator]="true" [hasValue]="false"></fc-operator-data>
           </ng-template>
         
           <ng-template #dataTpl>
@@ -57,7 +58,7 @@
           [nzHeader]="eventTpl"
           [nzShowArrow] = "false"
           #eventSetting>
-          <fc-event [config]="currentCompConfig" [remotes]="pageConfig.remotes" [localActions]="localActions"></fc-event>
+          <fc-event [config]="currentCompConfig" [remotes]="pageConfig.remotes" [localActions]="localActions" [compNames]="compNames"></fc-event>
           <ng-template #eventTpl>
             <div class="fc-setting-item-head" [class.active]="eventSetting.nzActive">
               <span>Event</span>
@@ -73,8 +74,8 @@
       <span>Action</span>
       <i nz-icon nzType="caret-right" nzTheme="outline" [nzRotate]="currentTabShowIndex === 2 ? 90: 0"></i>
     </div>
-    <div class="fc__settings-body">
-      
+    <div class="fc__settings-body fc__settings-action-container">
+      <fc-action [config]="pageConfig" [dataTables]="dataTables" [compNames]="compNames"></fc-action>
     </div>
   </div>
 </div>

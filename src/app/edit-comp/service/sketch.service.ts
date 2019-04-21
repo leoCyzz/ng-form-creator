@@ -7,7 +7,10 @@ import { ILayoutComponent } from 'app/model/component';
   })
 export class SketchService {
     editComps: Map<string, any> = new Map();
+    compNames: Map<string, string> = new Map();
+
     addComponent(item: DynamicComponentDirective) {
+        this.compNames.set(item.config.id, item.config.name);
         this.editComps.set(item.config.id, item);
     }
 
@@ -17,6 +20,7 @@ export class SketchService {
             const compConfig = compDirective.config;
             if (compConfig.type !== 'container') {
                 this.editComps.delete(selectorId);
+                this.compNames.delete(selectorId);
             } else {
                 this.deleteContainerComponent(compConfig);
             }
@@ -29,8 +33,20 @@ export class SketchService {
                 this.deleteContainerComponent(childConfig as ILayoutComponent);
             } else {
                 this.editComps.delete(childConfig.id);
+                this.compNames.delete(childConfig.id);
             }
         });
         this.editComps.delete(config.id);
+        this.compNames.delete(config.id);
+    }
+
+    getCompNames() {
+        const compNameArray = [];
+        this.compNames.forEach((name, id) => {
+            if (name) {
+                compNameArray.push({id, name});
+            }
+        });
+        return compNameArray;
     }
 }

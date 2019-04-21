@@ -47,7 +47,7 @@
               </div>
             </li>
           </ul>
-          <button nz-button nzType="primary" (click)="onAddFKMap($event, i)">
+          <button class="fc__property-addbtn" nz-button nzType="primary" (click)="onAddFKMap($event, i)">
             <i nz-icon nzType="plus" nzTheme="outline"></i>
             {{'edit.data.addFKMap' | translate}}
           </button>
@@ -61,7 +61,7 @@
             </nz-select>
             <i nz-icon nzType="delete" nzTheme="outline" (click)="onDeleteUniqueFields(i, uIndex)"  class="fc__property-delete-icon fc__property-unique-delete"></i>
           </div>
-          <button nz-button nzType="primary" (click)="onAddUniqueFields($event, i)">
+          <button class="fc__property-addbtn" nz-button nzType="primary" (click)="onAddUniqueFields($event, i)">
             <i nz-icon nzType="plus" nzTheme="outline"></i>
             {{'edit.data.addUniqueFields' | translate}}
           </button>

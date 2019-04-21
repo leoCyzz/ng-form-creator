@@ -1,0 +1,33 @@
+<div class="fc__property-line">
+  <label class="fc__property-label">{{'edit.action.resultComps' | translate}}:</label>
+  <nz-select class="fc__property-data"  [(ngModel)]="action.resultNames" nzPlaceHolder="" nzMode="multiple">
+    <nz-option *ngFor="let compNameItem of compNames" 
+    nzLabel="{{ compNameItem.name }}" nzValue="{{ compNameItem.id }}"></nz-option>
+  </nz-select>
+</div>
+<nz-collapse nzAccordion="true">
+  <nz-collapse-panel
+  [nzHeader]="'edit.action.transfers' | translate" >
+  <nz-collapse nzAccordion="true" *ngIf="action.transfers.length > 0">
+    <nz-collapse-panel *ngFor="let transferItem of action.transfers; let tIndex = index"
+    [nzHeader]="'transferItem-' + (tIndex + 1 )" 
+    [nzExtra]="extraTransferItemTpl">
+    <ng-template #extraTransferItemTpl>
+      <i nz-icon nzType="delete" nzTheme="outline" (click)="onDeleteTransferItem(tIndex)" class="fc__property-delete-icon"></i>
+    </ng-template>
+      <div>
+        <p>OriginalItem</p>
+        <fc-data-item [dataItem]="transferItem.origin" [dataTables]="dataTables" [dataGroups]="dataGroups"></fc-data-item>
+      </div>
+      <div>
+        <p>ReferredItem</p>
+        <fc-data-item [dataItem]="transferItem.refers" [dataTables]="dataTables" [dataGroups]="dataGroups"></fc-data-item>
+      </div>
+    </nz-collapse-panel>
+  </nz-collapse>
+  <button class="fc__property-addbtn" nz-button nzType="primary" (click)="onAddTransferItem()">
+    <i nz-icon nzType="plus" nzTheme="outline"></i>
+    {{'edit.action.addTransferItem' | translate}}
+  </button>
+  </nz-collapse-panel>
+</nz-collapse>

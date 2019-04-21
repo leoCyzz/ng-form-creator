@@ -1,0 +1,11 @@
+<fc-data-item [dataItem]="dataItem" [dataTables]="dataTables" [dataGroups]="dataGroups"></fc-data-item>
+<div class="fc__property-line" *ngIf="hasOperator">
+  <label class="fc__property-label">{{'edit.data.operator' | translate}}:</label>
+  <nz-select class="fc__property-data" [(ngModel)]="dataItem.operator" nzPlaceHolder="" >
+    <nz-option nzLabel="{{ ('edit.data.' + operatorItem.text) | translate}}" nzValue="{{operatorItem.value}}" *ngFor="let operatorItem of operatorTypes"></nz-option>
+  </nz-select>
+</div>
+<div class="fc__property-line" *ngIf="hasValue">
+  <label class="fc__property-label">{{'edit.data.value' | translate}}:</label>
+  <input class="fc__property-data" nz-input placeholder="" [(ngModel)]="dataItem.value" />
+</div>

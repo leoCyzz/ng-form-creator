@@ -1,16 +1,16 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, AfterViewInit } from '@angular/core';
 import { IPage } from 'app/model/page';
 import { IComponent } from 'app/model/component';
 import { IEvent } from 'app/model/event';
 import { ThirdTranslateService } from '@core/net/third-translate.service';
-import { EditService } from '../service/edit.service';
 import { IDataTable } from 'app/model/data';
+import { SketchService } from '../service/sketch.service';
 
 @Component({
   selector: 'fc-settings',
   templateUrl: './settings.component.html'
 })
-export class SettingsComponent implements OnInit, OnChanges {
+export class SettingsComponent implements OnInit, OnChanges, AfterViewInit {
   @Input()pageConfig: IPage;
   @Input()selectorParams: any;
   @Input()dataTables: IDataTable[] = [];
@@ -26,9 +26,10 @@ export class SettingsComponent implements OnInit, OnChanges {
   currentEvents: IEvent[] = [];
   currentCompName = '';
   isNameError = false;
+  compNames = [];
   constructor(
     private thirdTranslate: ThirdTranslateService,
-    private editService: EditService,
+    private sketchService: SketchService,
   ) { }
 
   ngOnInit() {
@@ -46,10 +47,12 @@ export class SettingsComponent implements OnInit, OnChanges {
     }
   }
 
+  ngAfterViewInit(): void {
+    this.compNames = this.sketchService.getCompNames();
+  }
+
   initData() {
     this.currentTranslateList = this.thirdTranslate.getThirdTranslation();
-    // this.dataTables = this.editService.getDataTables();
-    // this.localActions = this.editService.getLocalActions();
   }
 
   getCurrentSelectConfig(config: IComponent | IPage, selectorId: string, isPage: boolean = true) {
@@ -75,14 +78,10 @@ export class SettingsComponent implements OnInit, OnChanges {
   }
 
   onNameChange(name: any) {
-    if (name) {
-      if (this.editService.isRepeat(name)) {
-        this.isNameError = true;
-      } else {
-        this.isNameError = false;
-        this.editService.removeName(this.currentCompName);
-        this.editService.addName(name);
-      }
+    if (name && this.currentType !== 'page') {
+      this.sketchService.compNames.set(this.currentCompConfig.id, name);
+      this.compNames = this.sketchService.getCompNames();
+      console.log(this.compNames);
     }
   }
 }

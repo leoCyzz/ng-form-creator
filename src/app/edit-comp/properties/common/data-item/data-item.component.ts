@@ -1,21 +1,18 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IDataTable, IDataGroup, ICompData } from 'app/model/data';
-import { IPage } from 'app/model/page';
+import { IDataTable, IDataGroup, IDataItem } from 'app/model/data';
+
 
 @Component({
   selector: 'fc-data-item',
   templateUrl: './data-item.component.html'
 })
 export class DataItemComponent implements OnInit {
-  @Input() config: IPage;
-  @Input() compId: string;
+  @Input() dataItem: IDataItem;
   @Input() dataTables: IDataTable[];
+  @Input() dataGroups: IDataGroup[];
 
-  dataItem: ICompData = null;
   constructor() { }
 
-  ngOnInit() {
-    this.dataItem = this.config.dataItems[this.compId];
-  }
+  ngOnInit() {}
 
 }

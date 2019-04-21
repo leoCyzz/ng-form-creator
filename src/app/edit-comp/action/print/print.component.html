@@ -1,0 +1,31 @@
+<div class="fc__property-line">
+  <label class="fc__property-label">{{'edit.action.resultItem' | translate}}:</label>
+  <input class="fc__property-data" nz-input placeholder="" [(ngModel)]="action.resultItem" />
+</div>
+<nz-collapse nzAccordion="true">
+  <nz-collapse-panel
+    [nzHeader]="'edit.action.printItem' | translate">
+    <nz-collapse nzAccordion="true" *ngIf="action.printItems.length > 0">
+      <nz-collapse-panel *ngFor="let printItem of action.printItems; let pIndex = index"
+        [nzHeader]="('edit.action.printItem' | translate) + (pIndex + 1)" 
+        [nzExtra]="extraPrintTpl"> 
+        <ng-template #extraPrintTpl>
+          <i nz-icon nzType="delete" nzTheme="outline" (click)="onDeletePrintItem(pIndex)" class="fc__property-delete-icon"></i>
+        </ng-template>
+        <div class="fc__property-line">
+          <label class="fc__property-label">{{'edit.action.keyName' | translate}}:</label>
+          <input class="fc__property-data" nz-input placeholder="" [(ngModel)]="printItem.keyName" />
+        </div>
+        <div class="fc__property-line">
+          <label class="fc__property-label">{{'edit.action.itemName' | translate}}:</label>
+          <input class="fc__property-data" nz-input placeholder="" [(ngModel)]="printItem.itemName" />
+        </div>
+        <fc-data-item [dataItem]="printItem" [dataTables]="dataTables" [dataGroups]="dataGroups"></fc-data-item>
+      </nz-collapse-panel>
+    </nz-collapse>
+    <button class="fc__property-addbtn" nz-button nzType="primary" (click)="onAddPrintItem()">
+      <i nz-icon nzType="plus" nzTheme="outline"></i>
+      {{'edit.action.addPrintItem' | translate}}
+    </button>
+  </nz-collapse-panel>
+</nz-collapse>
