@@ -17,15 +17,17 @@
             <div class="fc__property-data">
               <input nz-input  id="name" name="name" #pageName
                 placeholder="" [(ngModel)]="currentCompConfig.name" (change)="onNameChange(pageName.value)">
-              <p class="fc__property-error" [class.is-error]="isNameError">{{'edit.error.nameRepeat' | translate}}</p>
+              <p class="fc__property-error" [class.is-error]="isNameError">
+                {{'edit.error.nameRepeat' | translate}}</p>
             </div>
           </div>
           <fc-comp-default *ngIf="currentType !== 'page'" [config]="currentCompConfig"></fc-comp-default>
           <fc-form-default *ngIf="hasDataItem && currentType !== 'page'" [config]="currentCompConfig" 
             [transList]="currentTranslateList"></fc-form-default>
           <!-- self-property -->
-          <ng-container fcDynamicProperty [config]="currentCompConfig" [type]="currentType" [transList]="currentTranslateList"
-            [dataTables]="dataTables" [localActions]="localActions"></ng-container>
+          <ng-container fcDynamicProperty [config]="currentCompConfig" [type]="currentType" 
+            [transList]="currentTranslateList" [dataTables]="dataTables" 
+            [localActions]="localActions"></ng-container>
           <ng-template #commonTpl>
             <div class="fc-setting-item-head" [class.active]="commonSetting.nzActive">
               <span>Common</span>
@@ -39,7 +41,8 @@
           [nzShowArrow] = "false"
           #dataSetting>
           <ng-container *ngIf="hasDataItem && currentType === 'page'; else dataItemTemplate">
-            <fc-data-group [config]="currentCompConfig" [dataTables]="dataTables" class="fc__property-collapse"></fc-data-group>
+            <fc-data-group [config]="currentCompConfig" [dataTables]="dataTables" 
+              class="fc__property-collapse"></fc-data-group>
           </ng-container>
           <ng-template #dataItemTemplate>
             <fc-operator-data [dataItem]="pageConfig.dataItems[currentCompConfig.id]" [dataTables]="dataTables"
@@ -58,7 +61,8 @@
           [nzHeader]="eventTpl"
           [nzShowArrow] = "false"
           #eventSetting>
-          <fc-event [config]="currentCompConfig" [remotes]="pageConfig.remotes" [localActions]="localActions" [compNames]="compNames"></fc-event>
+          <fc-event [config]="currentCompConfig" [remotes]="pageConfig.remotes" [localActions]="localActions" 
+            [compNames]="compNames" [actions]="pageConfig.actions"></fc-event>
           <ng-template #eventTpl>
             <div class="fc-setting-item-head" [class.active]="eventSetting.nzActive">
               <span>Event</span>

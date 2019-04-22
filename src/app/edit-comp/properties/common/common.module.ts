@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { DataGroupComponent, DataItemComponent, CompDefaultComponent, FormDefaultComponent,
-     OperatorDataComponent } from '.';
+     OperatorDataComponent, ExtraFuncComponent } from '.';
 import { SharedModule } from '@shared';
 import { PipeModule } from 'app/edit-comp/pipe/pipe.module';
 
@@ -9,7 +9,8 @@ const EDIT_COMMON = [
     DataItemComponent,
     CompDefaultComponent,
     FormDefaultComponent,
-    OperatorDataComponent
+    OperatorDataComponent,
+    ExtraFuncComponent,
 ];
 
 @NgModule({

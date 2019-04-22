@@ -3,16 +3,18 @@
     [nzHeader]="eventItem.type || 'event'" 
     [nzExtra]="extraEventTpl">
     <ng-template #extraEventTpl>
-        <i nz-icon nzType="delete" nzTheme="outline" (click)="onDeleteEvent(i)" class="fc__property-delete-icon"></i>
-      </ng-template>
+      <i nz-icon nzType="delete" nzTheme="outline" (click)="onDeleteEvent(i)" 
+        class="fc__property-delete-icon"></i>
+    </ng-template>
     <div class="fc__property-line">
       <label for="label" class="fc__property-label">{{'edit.event.type' | translate}}:</label>
-      <nz-select class="fc__property-data" id="label" name="label"  [(ngModel)]="eventItem.type" nzPlaceHolder="">
+      <nz-select class="fc__property-data" id="label" name="label"  
+        [(ngModel)]="eventItem.type" nzPlaceHolder="">
         <nz-option *ngFor="let eventTypeItem of eventTypes; let j = index" 
           nzLabel="{{ eventTypes[j] }}" nzValue="{{ eventTypes[j] }}"></nz-option>
       </nz-select>
     </div>
-    <nz-collapse nzAccordion="true">
+    <nz-collapse nzAccordion="true" class="fc__event-collapse">
       <nz-collapse-panel 
       [nzHeader]="'edit.event.local' | translate">
       <div class="fc__property-line">
@@ -24,13 +26,22 @@
       </div>
       <div class="fc__property-line">
         <label class="fc__property-label">{{'edit.event.comps' | translate}}:</label>
-        <nz-select class="fc__property-data"  [(ngModel)]="eventItem.local.comps" nzPlaceHolder="" nzMode="multiple">
+        <nz-select class="fc__property-data"  [(ngModel)]="eventItem.local.comps" 
+          nzPlaceHolder="" nzMode="multiple">
           <nz-option *ngFor="let compNameItem of compNames" 
           nzLabel="{{ compNameItem.name }}" nzValue="{{ compNameItem.id }}"></nz-option>
         </nz-select>
       </div>
     </nz-collapse-panel>
     </nz-collapse>
+    <div class="fc__property-line">
+      <label class="fc__property-label">{{'edit.event.remotes' | translate}}:</label>
+      <nz-select class="fc__property-data"  [(ngModel)]="remotes[eventItem.id]" 
+        nzPlaceHolder="" nzMode="multiple">
+        <nz-option *ngFor="let actionItem of actions" 
+        nzLabel="{{ actionItem.name }}" nzValue="{{ actionItem.id }}"></nz-option>
+      </nz-select>
+    </div>
     <nz-collapse nzAccordion="true">
       <nz-collapse-panel 
       [nzHeader]="'edit.event.afterRemote' | translate">
@@ -43,7 +54,8 @@
       </div>
       <div class="fc__property-line">
         <label class="fc__property-label">{{'edit.event.comps' | translate}}:</label>
-        <nz-select class="fc__property-data"  [(ngModel)]="eventItem.afterRemote.comps" nzPlaceHolder="" nzMode="multiple">
+        <nz-select class="fc__property-data"  [(ngModel)]="eventItem.afterRemote.comps" 
+          nzPlaceHolder="" nzMode="multiple">
           <nz-option *ngFor="let compNameItem of compNames" 
           nzLabel="{{ compNameItem.name }}" nzValue="{{ compNameItem.id }}"></nz-option>
         </nz-select>

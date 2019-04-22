@@ -42,8 +42,8 @@
         [nzHeader]="'filter-' + (fIndex + 1 )" 
         [nzExtra]="extraFilterTpl">
         <ng-template #extraFilterTpl>
-            <i nz-icon nzType="delete" nzTheme="outline" (click)="onDeleteFilter(i, fIndex)" class="fc__property-delete-icon"></i>
-          </ng-template>
+          <i nz-icon nzType="delete" nzTheme="outline" (click)="onDeleteFilter(i, fIndex)" class="fc__property-delete-icon"></i>
+        </ng-template>
         <fc-operator-data [dataItem]="filterItem" [dataTables]="dataTables"
           [dataGroups]="config.dataGroups" [hasOperator]="true" [hasValue]="true"></fc-operator-data>
         </nz-collapse-panel>
@@ -57,16 +57,64 @@
     <nz-collapse nzAccordion="true">
       <nz-collapse-panel
       [nzHeader]="'edit.action.extraScript' | translate">
-
-      <button class="fc__property-addbtn" nz-button nzType="primary" (click)="onAddExtraFunction(i)">
-        <i nz-icon nzType="plus" nzTheme="outline"></i>
-        {{'edit.action.addExtraScript' | translate}}
-      </button>
+      <nz-collapse nzAccordion="true">
+        <nz-collapse-panel [nzHeader]="'Prepare'">
+          <nz-collapse nzAccordion="true" *ngIf="actionItem.extraFuncs.prepare.length > 0">
+            <nz-collapse-panel *ngFor="let prepareItem of actionItem.extraFuncs.prepare; let pIndex = index"
+            [nzHeader]="'prepare' + (pIndex + 1)"
+            [nzExtra]="extraPrepareTpl">
+              <ng-template #extraPrepareTpl>
+                <i nz-icon nzType="delete" nzTheme="outline" (click)="onDeletePrepare(i, pIndex)" 
+                  class="fc__property-delete-icon"></i>
+              </ng-template>
+              <fc-extra-func [dataGroups]="config.dataGroups" [funcItem]="prepareItem"></fc-extra-func>
+            </nz-collapse-panel>
+          </nz-collapse>
+          <button class="fc__property-addbtn" nz-button nzType="primary" (click)="onAddPrepare(i)">
+            <i nz-icon nzType="plus" nzTheme="outline"></i>
+            {{'edit.extra.addPrepare' | translate}}
+          </button>
+        </nz-collapse-panel>
+        <nz-collapse-panel [nzHeader]="'After'">
+          <nz-collapse nzAccordion="true" *ngIf="actionItem.extraFuncs.after.length > 0">
+            <nz-collapse-panel *ngFor="let afterItem of actionItem.extraFuncs.after; let aIndex = index" 
+            [nzHeader]="'after' + (aIndex + 1)"
+            [nzExtra]="extraAfterTpl">
+              <ng-template #extraAfterTpl>
+                <i nz-icon nzType="delete" nzTheme="outline" (click)="onDeleteAfter(i, aIndex)" 
+                  class="fc__property-delete-icon"></i>
+              </ng-template>
+              <fc-extra-func [dataGroups]="config.dataGroups" [funcItem]="afterItem"></fc-extra-func>
+            </nz-collapse-panel>
+          </nz-collapse>
+          <button class="fc__property-addbtn" nz-button nzType="primary" (click)="onAddAfter(i)">
+            <i nz-icon nzType="plus" nzTheme="outline"></i>
+            {{'edit.extra.addAfter' | translate}}
+          </button>
+        </nz-collapse-panel>
+        <nz-collapse-panel [nzHeader]="'Validate'">
+          <nz-collapse nzAccordion="true" *ngIf="actionItem.extraFuncs.validate.length > 0">
+            <nz-collapse-panel *ngFor="let validateItem of actionItem.extraFuncs.validate; let vIndex = index"
+            [nzHeader]="'validate' + (vIndex + 1)"
+            [nzExtra]="extraValidateTpl">
+              <ng-template #extraValidateTpl>
+                <i nz-icon nzType="delete" nzTheme="outline" (click)="onDeleteValidate(i, vIndex)" 
+                  class="fc__property-delete-icon"></i>
+              </ng-template>
+              <fc-extra-func [dataGroups]="config.dataGroups" [funcItem]="validateItem"></fc-extra-func>
+            </nz-collapse-panel>
+          </nz-collapse>
+          <button class="fc__property-addbtn" nz-button nzType="primary" (click)="onAddValidate(i)">
+            <i nz-icon nzType="plus" nzTheme="outline"></i>
+            {{'edit.extra.addValidate' | translate}}
+          </button>
+        </nz-collapse-panel>
+      </nz-collapse>
       </nz-collapse-panel>
     </nz-collapse>
   </nz-collapse-panel>
 </nz-collapse>
-<button class="fc__property-addbtn" nz-button nzType="primary" (click)="onAddAction()" class="fc__property-addbtn">
+<button class="fc__property-addbtn" nz-button nzType="primary" (click)="onAddAction()">
   <i nz-icon nzType="plus" nzTheme="outline"></i>
   {{'edit.action.addAction' | translate}}
 </button>

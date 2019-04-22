@@ -159,7 +159,8 @@
             "local": "Local",
             "name": "名称",
             "afterRemote": "Http后Action",
-            "comps": "组件集合"
+            "comps": "组件集合",
+            "remotes": "HttpEvents"
         },
         "action": {
             "addAction": "增加Action",
@@ -181,7 +182,15 @@
             "transfers": "Transfers",
             "addTransferItem": "增加TransferItem",
             "keyName": "KeyName",
-            "itemName": "ItemName"
+            "itemName": "ItemName",
+            "resultComps": "Result组件"
+        },
+        "extra": {
+            "addPrepare": "增加Prepare Function",
+            "addAfter": "增加After Function",
+            "addValidate": "增加Validate Function",
+            "groupName": "GroupName",
+            "functionName": "FunctionName"
         },
         "error": {
             "nameRepeat": "Name不可重复"

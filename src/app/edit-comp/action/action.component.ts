@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CompAction, ExportAction, ImportAction, PrintAction, QueryAction, SaveAction,
-  ViewAction, ExtraFunction, IAction } from 'app/model/event';
+  ViewAction, IAction, FunctionItem } from 'app/model/event';
 import { IDataTable, OPERATOR_TYPES, OperatorData } from 'app/model/data';
 import { IPage } from 'app/model/page';
 
@@ -36,19 +36,19 @@ export class ActionComponent implements OnInit {
     this.config.actions.push(newAction);
     this.currentActiveIndex = this.config.actions.length - 1;
   }
+
   onDeleteAction(index: number) {
     const id = this.config.actions[index].id;
     delete this.config.actionItems[id];
     this.config.actions.splice(index, 1);
   }
+
   onAddFilter(index: number) {
     this.config.actions[index].filters.push(new OperatorData());
   }
+
   onDeleteFilter(index: number, fIndex: number) {
     this.config.actions[index].filters.splice(fIndex, 1);
-  }
-  onAddExtraFunction(index: number) {
-    this.config.actions[index].extraFuncs.push(new ExtraFunction());
   }
 
   onActionTypeChange(e: any, index: number) {
@@ -95,5 +95,29 @@ export class ActionComponent implements OnInit {
     Object.assign(action, originAction);
 
     return action;
+  }
+
+  onAddPrepare(index: number) {
+    this.config.actions[index].extraFuncs.prepare.push(new FunctionItem());
+  }
+
+  onAddAfter(index: number) {
+    this.config.actions[index].extraFuncs.after.push(new FunctionItem());
+  }
+
+  onAddValidate(index: number) {
+    this.config.actions[index].extraFuncs.validate.push(new FunctionItem());
+  }
+
+  onDeletePrepare(index: number, pIndex: number) {
+    this.config.actions[index].extraFuncs.prepare.splice(pIndex, 1);
+  }
+
+  onDeleteAfter(index: number, aIndex: number) {
+    this.config.actions[index].extraFuncs.after.splice(aIndex, 1);
+  }
+
+  onDeleteValidate(index: number, vIndex: number) {
+    this.config.actions[index].extraFuncs.validate.splice(vIndex, 1);
   }
 }

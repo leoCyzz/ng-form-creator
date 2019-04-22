@@ -1,0 +1,10 @@
+<div class="fc__property-line">
+  <label class="fc__property-label">{{'edit.extra.groupName' | translate}}:</label>
+  <nz-select class="fc__property-data" nzAllowClear [(ngModel)]="funcItem.groupName" nzPlaceHolder="" nzShowSearch>
+    <nz-option nzLabel="{{groupItem.name}}" nzValue="{{groupItem.name}}" *ngFor="let groupItem of dataGroups"></nz-option>
+  </nz-select>
+</div>
+<div class="fc__property-line">
+  <label class="fc__property-label">{{'edit.extra.functionName' | translate}}:</label>
+  <input class="fc__property-data" nz-input placeholder="" [(ngModel)]="funcItem.functionName" />
+</div>

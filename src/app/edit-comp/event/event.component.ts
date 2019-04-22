@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { IComponent } from 'app/model/component';
-import { IRemoteAction, IEvent, CompEvent } from 'app/model/event';
+import { IRemoteAction, IEvent, CompEvent, IAction } from 'app/model/event';
 import { IPage } from 'app/model/page';
 
 const COMP_EVENT = {
@@ -26,6 +26,7 @@ export class EventComponent implements OnInit, OnChanges {
   @Input() remotes: {};
   @Input() localActions: string[];
   @Input() compNames: {id: string, name: string}[];
+  @Input() actions: IAction[];
   events: IEvent[];
   remote: { [key: string]: IRemoteAction };
   eventTypes = [];

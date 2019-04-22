@@ -29,7 +29,7 @@ export interface IAction {
     // 过滤条件
     filters: IOperatorData[];
     // 额外function
-    extraFuncs: IExtraFunction[];
+    extraFuncs: IExtraFunction;
     // 更多属性
     [key: string]: any;
 }
@@ -44,10 +44,14 @@ export interface IFilterItem {
 }
 
 export interface IExtraFunction {
-    // func 类型
-    type: string;
-    // 更多属性
-    [key: string]: any;
+    prepare: IFunctionItem[];
+    after: IFunctionItem[];
+    validate: IFunctionItem[];
+}
+
+export interface IFunctionItem {
+    groupName: string;
+    functionName: string;
 }
 
 export interface ISaveAction extends IAction {
@@ -123,28 +127,6 @@ export class CompEvent implements IEvent {
     }
 }
 
-export class CompAction implements IAction {
-    id: string;
-    name: string;
-    type: string;
-    filters: IOperatorData[];
-    extraFuncs: IExtraFunction[];
-
-    constructor(prop: {
-        id?: string,
-        name?: string,
-        type?: string,
-        filters?: IOperatorData[],
-        extraFuncs?: IExtraFunction[]
-    } = {}) {
-        this.id = prop.id || uuid().replace(/-/g, '');
-        this.name = prop.name || '';
-        this.type = prop.type || '';
-        this.filters = prop.filters || [];
-        this.extraFuncs = prop.extraFuncs || [];
-    }
-}
-
 export class PageRemoteAction implements IRemoteAction {
     queue: string[];
 
@@ -171,13 +153,54 @@ export class FilterItem implements IFilterItem {
     }
 }
 
-export class ExtraFunction implements IExtraFunction {
-    type: string;
+export class FunctionItem implements IFunctionItem {
+    groupName: string;
+    functionName: string;
 
     constructor(prop: {
-        type?: string
+        groupName?: string,
+        functionName?: string
     } = {}) {
+        this.groupName = prop.groupName || '';
+        this.functionName = prop.functionName || '';
+    }
+}
+
+export class ExtraFunction implements IExtraFunction {
+    prepare: IFunctionItem[];
+    after: IFunctionItem[];
+    validate: IFunctionItem[];
+
+    constructor(prop: {
+        prepare?: IFunctionItem[],
+        after?: IFunctionItem[],
+        validate?: IFunctionItem[]
+    } = {}) {
+        this.prepare = prop.prepare || [];
+        this.after = prop.after || [];
+        this.validate = prop.validate || [];
+    }
+}
+
+export class CompAction implements IAction {
+    id: string;
+    name: string;
+    type: string;
+    filters: IOperatorData[];
+    extraFuncs: IExtraFunction;
+
+    constructor(prop: {
+        id?: string,
+        name?: string,
+        type?: string,
+        filters?: IOperatorData[],
+        extraFuncs?: IExtraFunction
+    } = {}) {
+        this.id = prop.id || uuid().replace(/-/g, '');
+        this.name = prop.name || '';
         this.type = prop.type || '';
+        this.filters = prop.filters || [];
+        this.extraFuncs = prop.extraFuncs || new ExtraFunction();
     }
 }
 
