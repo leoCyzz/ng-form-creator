@@ -23,7 +23,7 @@ export class SettingsComponent implements OnInit, OnChanges, AfterViewInit {
   currentTabShowIndex = 1;
   currentTranslateList = [];
   currentIsContainer = false;
-  currentEvents: IEvent[] = [];
+  currentEvents: IEvent[] = null;
   currentCompName = '';
   isNameError = false;
   compNames = [];
@@ -59,7 +59,7 @@ export class SettingsComponent implements OnInit, OnChanges, AfterViewInit {
     if (selectorId === config.id) {
       this.currentCompConfig = config;
       this.currentIsContainer = !isPage && (config as IComponent).type  === 'container';
-      this.currentEvents = this.currentIsContainer ? [] : config.events;
+      this.currentEvents = this.currentIsContainer ? null : config.events;
       this.currentType = isPage ? 'page' : (config as IComponent).type;
       this.title = this.currentType.substring(0, 1).toUpperCase() + this.currentType.substring(1);
       this.hasDataItem = this.currentType !== 'container' && this.currentType !== 'button';
@@ -81,7 +81,6 @@ export class SettingsComponent implements OnInit, OnChanges, AfterViewInit {
     if (name && this.currentType !== 'page') {
       this.sketchService.compNames.set(this.currentCompConfig.id, name);
       this.compNames = this.sketchService.getCompNames();
-      console.log(this.compNames);
     }
   }
 }

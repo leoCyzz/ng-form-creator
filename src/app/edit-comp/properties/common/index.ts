@@ -4,3 +4,4 @@ export { CompDefaultComponent } from './comp-default/comp-default.component';
 export { FormDefaultComponent } from './form-default/form-default.component';
 export { OperatorDataComponent } from './operator-data/operator-data.component';
 export { ExtraFuncComponent } from './extra-func/extra-func.component';
+export { CompDataComponent } from './comp-data/comp-data.component';

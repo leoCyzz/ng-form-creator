@@ -9,7 +9,7 @@ import { IComponent, ILayoutComponent, ButtonComp, ContainerComp, InputComp, Che
 import { SketchHoverComponent, SketchDragComponent, SketchSelectComponent } from '.';
 import { SketchService } from 'app/edit-comp/service/sketch.service';
 import { RawPosition, ItemDimension } from 'app/model/dynamic';
-import { DataItem } from 'app/model/data';
+import { OperatorData } from 'app/model/data';
 
 const SELECTOR_LIST = [
   { type: 'button', text: 'button' },
@@ -224,8 +224,10 @@ export class SketchComponent implements OnInit, OnChanges, AfterViewInit {
         this.createSelectPlaceholder(compDirective, pos);
         this.currentSelectItem = compDirective;
         // 更新对应comp对应dataItem 和 remotes
-        this.pageConfig.dataItems[compDirective.config.id] = new DataItem();
-        this.pageConfig.remotes[compDirective.config.id] = {};
+        if (compDirective.config.type !== 'container') {
+          this.pageConfig.dataItems[compDirective.config.id] = new OperatorData();
+          this.pageConfig.remotes[compDirective.config.id] = {};
+        }
         // Event 触发
         this.selectorCompChange.emit({selectorId: compDirective.config.id, parentId: compDirective.parentId});
       }
@@ -567,7 +569,7 @@ export class SketchComponent implements OnInit, OnChanges, AfterViewInit {
   onCompClose(compParams: any) {
     this.compDelete(this.pageConfig, compParams);
     this.removeSelectPlaceholder();
-    this.sketchService.removeComponent(compParams.selectorId);
+    this.sketchService.removeComponent(compParams.selectorId, this.pageConfig.dataItems, this.pageConfig.remotes);
     // 删除PageConfig dataItems, remotes 相关信息
     delete this.pageConfig.dataItems[compParams.selectorId];
     delete this.pageConfig.remotes[compParams.selectorId];
@@ -586,6 +588,8 @@ export class SketchComponent implements OnInit, OnChanges, AfterViewInit {
       });
     }
   }
+
+  
 
   // config保存
   onPageConfigSave() {

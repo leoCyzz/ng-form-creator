@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { IComponent } from 'app/model/component';
-import { IRemoteAction, IEvent, CompEvent, IAction } from 'app/model/event';
+import { IRemoteAction, IEvent, CompEvent, IAction, PageRemoteAction } from 'app/model/event';
 import { IPage } from 'app/model/page';
 
 const COMP_EVENT = {
@@ -27,7 +27,7 @@ export class EventComponent implements OnInit, OnChanges {
   @Input() localActions: string[];
   @Input() compNames: {id: string, name: string}[];
   @Input() actions: IAction[];
-  events: IEvent[];
+  events: IEvent[] = [];
   remote: { [key: string]: IRemoteAction };
   eventTypes = [];
   constructor() { }
@@ -41,14 +41,19 @@ export class EventComponent implements OnInit, OnChanges {
       const type = this.config.hasOwnProperty('type') ? (this.config as IComponent).type : 'page';
       this.eventTypes = COMP_EVENT[type];
       this.events = this.config.events;
+      this.remote = this.remotes[this.config.id];
     }
   }
 
   onAddEvent() {
-    this.events.push(new CompEvent());
+    const newEvent = new CompEvent();
+    this.remote[newEvent.id] = new PageRemoteAction();
+    this.events.push(newEvent);
   }
 
   onDeleteEvent(index: number) {
+    const event = this.events[index];
+    delete this.remote[event.id];
     this.events.splice(index, 1);
   }
 }

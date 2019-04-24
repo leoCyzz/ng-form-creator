@@ -16,6 +16,8 @@ import { ActionModule } from './action/action.module';
 import { EventModule } from './event/event.module';
 import { PipeModule } from './pipe/pipe.module';
 import { PropertyCommonModule } from './properties/common/common.module';
+import { DynamicDataItemDirective } from './directive/dynamic-data-item.directive';
+import { CompDataComponent } from './properties/common';
 
 const EDIT_PAGES = [
   SketchComponent,
@@ -42,7 +44,8 @@ const EDIT_SKETCH = [
 ];
 const EDIT_DIRECTIVE = [
   DynamicComponentDirective,
-  DynamicPropertyDirective
+  DynamicPropertyDirective,
+  DynamicDataItemDirective
 ];
 const EDIT_PROPERTIES = [
   ButtonPropertyComponent,
@@ -84,6 +87,7 @@ const EDIT_PROPERTIES = [
     ...EDIT_PROPERTIES
   ],
   entryComponents: [
+    CompDataComponent,
     ...EDIT_COMPONENTS,
     ...EDIT_SKETCH,
     ...EDIT_PROPERTIES

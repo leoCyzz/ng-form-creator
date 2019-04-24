@@ -45,6 +45,7 @@ export interface IButton extends IComponent {
     btnType: string;
     // 按钮可用
     disabled: boolean;
+    events: IEvent[];
 }
 
 export interface ICheckbox extends IFormComponent {
@@ -226,17 +227,20 @@ export class ButtonComp extends ComponentBase implements IButton {
     text: string;
     btnType: string;
     disabled: boolean;
+    events: IEvent[];
 
     constructor(prop: {
         text?: string,
         btnType?: string,
-        disabled?: boolean
+        disabled?: boolean,
+        events?: IEvent[]
     } = {}) {
         super();
         this.type = 'button';
         this.text = prop.text || '';
         this.btnType = prop.btnType || 'default';
         this.disabled = prop.disabled || false;
+        this.events = prop.events || [];
     }
 }
 

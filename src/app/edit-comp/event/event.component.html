@@ -1,4 +1,4 @@
-<nz-collapse nzAccordion="true" *ngIf="events.length > 0">
+<nz-collapse nzAccordion="true" *ngIf="events && events.length > 0">
   <nz-collapse-panel *ngFor="let eventItem of events; let i = index"
     [nzHeader]="eventItem.type || 'event'" 
     [nzExtra]="extraEventTpl">
@@ -36,7 +36,7 @@
     </nz-collapse>
     <div class="fc__property-line">
       <label class="fc__property-label">{{'edit.event.remotes' | translate}}:</label>
-      <nz-select class="fc__property-data"  [(ngModel)]="remotes[eventItem.id]" 
+      <nz-select class="fc__property-data"  [(ngModel)]="remote[eventItem.id].queue" 
         nzPlaceHolder="" nzMode="multiple">
         <nz-option *ngFor="let actionItem of actions" 
         nzLabel="{{ actionItem.name }}" nzValue="{{ actionItem.id }}"></nz-option>

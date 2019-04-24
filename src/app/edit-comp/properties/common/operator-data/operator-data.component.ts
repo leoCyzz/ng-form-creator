@@ -6,6 +6,7 @@ import { IOperatorData, IDataTable, IDataGroup, OPERATOR_TYPES } from 'app/model
   templateUrl: './operator-data.component.html'
 })
 export class OperatorDataComponent implements OnInit {
+
   @Input() dataItem: IOperatorData;
   @Input() dataTables: IDataTable[];
   @Input() dataGroups: IDataGroup[];
@@ -17,5 +18,4 @@ export class OperatorDataComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

@@ -9,7 +9,7 @@ import { ButtonPropertyComponent, ContainerPropertyComponent, InputPropertyCompo
     UploadPropertyComponent, PagePropertyComponent, SelectPropertyComponent,
     RadioPropertyComponent, DatepickerPropertyComponent, ScalePropertyComponent,
     PrintPropertyComponent } from 'app/edit-comp/properties';
-import { IDataTable } from './data';
+import { IDataTable, IDataGroup, IOperatorData } from './data';
 
 export interface IEditDynamic {
     config: IComponent;
@@ -65,5 +65,12 @@ export const DYNAMIC_PROPERTIES: { [type: string]: Type<IDynamicProperty> } = {
     scale: ScalePropertyComponent,
     print: PrintPropertyComponent,
     upload: UploadPropertyComponent,
-    page: PagePropertyComponent};
+    page: PagePropertyComponent
+};
 
+
+export interface IDynamicDataItem {
+    dataTables: IDataTable[];
+    dataGroups: IDataGroup[];
+    dataItem: IOperatorData;
+}
