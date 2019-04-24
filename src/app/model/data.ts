@@ -57,8 +57,8 @@ export class DataItem implements IDataItem {
         groupName?: string,
 
     } = {}) {
-        this.fieldId = prop.fieldId || '';
-        this.groupName = prop.groupName || '';
+        this.fieldId = prop.fieldId || null;
+        this.groupName = prop.groupName || null;
     }
 }
 

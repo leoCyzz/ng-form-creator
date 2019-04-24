@@ -1,4 +1,4 @@
-<fc-data-item [dataItem]="dataItem" [dataTables]="dataTables" [dataGroups]="dataGroups"></fc-data-item>
+<fc-data-item [(dataItem)]="dataItem" [dataTables]="dataTables" [dataGroups]="dataGroups"></fc-data-item>
 <div class="fc__property-line" *ngIf="hasOperator">
   <label class="fc__property-label">{{'edit.data.operator' | translate}}:</label>
   <nz-select class="fc__property-data" [(ngModel)]="dataItem.operator" nzPlaceHolder="" >

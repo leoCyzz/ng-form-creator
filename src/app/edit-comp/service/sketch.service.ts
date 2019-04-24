@@ -1,7 +1,7 @@
-import { Injectable, ElementRef } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { DynamicComponentDirective } from '../directive/dynamic-component.directive';
-import { ILayoutComponent } from 'app/model/component';
-import { IOperatorData } from 'app/model/data';
+import { ILayoutComponent, IComponent } from 'app/model/component';
+import { IPage } from 'app/model/page';
 
 @Injectable({
     providedIn: 'root'
@@ -15,34 +15,31 @@ export class SketchService {
         this.editComps.set(item.config.id, item);
     }
 
-    removeComponent(selectorId: string, dataItems: {[key: string]: IOperatorData}, remotes: {[key: string]: any}) {
+    removeComponent(selectorId: string, pageConfig: IPage) {
         const compDirective = this.editComps.get(selectorId);
         if (compDirective) {
             const compConfig = compDirective.config;
-            if (compConfig.type !== 'container') {
-                this.editComps.delete(selectorId);
-                this.compNames.delete(selectorId);
-                delete dataItems[selectorId];
-                delete remotes[selectorId];
-            } else {
-                this.deleteContainerComponent(compConfig, dataItems, remotes);
-            }
+            this.deleteContainerComponent(compConfig, pageConfig);
         }
     }
 
-    deleteContainerComponent(config: ILayoutComponent, dataItems: {[key: string]: IOperatorData}, remotes: {[key: string]: any}) {
-        config.children.forEach(childConfig => {
-            if (childConfig.type === 'container') {
-                this.deleteContainerComponent(childConfig as ILayoutComponent, dataItems, remotes);
-            } else {
-                this.editComps.delete(childConfig.id);
-                this.compNames.delete(childConfig.id);
-                delete dataItems[childConfig.id];
-                delete remotes[childConfig.id];
-            }
-        });
-        this.editComps.delete(config.id);
-        this.compNames.delete(config.id);
+    deleteComponent(id: string, pageConfig: IPage) {
+        this.editComps.delete(id);
+        this.compNames.delete(id);
+        delete pageConfig.dataItems[id];
+        delete pageConfig.remotes[id];
+    }
+
+    deleteContainerComponent(config: IComponent, pageConfig: IPage) {
+        if (config.type !== 'container') {
+            this.deleteComponent(config.id, pageConfig);
+        } else {
+            (config as ILayoutComponent).forEach(childConfig => {
+                this.deleteContainerComponent(childConfig, pageConfig);
+            });
+            this.editComps.delete(config.id);
+            this.compNames.delete(config.id);
+        }
     }
 
     getCompNames() {

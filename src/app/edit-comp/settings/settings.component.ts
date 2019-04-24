@@ -3,7 +3,7 @@ import { IPage } from 'app/model/page';
 import { IComponent } from 'app/model/component';
 import { IEvent } from 'app/model/event';
 import { ThirdTranslateService } from '@core/net/third-translate.service';
-import { IDataTable } from 'app/model/data';
+import { IDataTable, IOperatorData, OperatorData } from 'app/model/data';
 import { SketchService } from '../service/sketch.service';
 
 @Component({
@@ -25,6 +25,7 @@ export class SettingsComponent implements OnInit, OnChanges, AfterViewInit {
   currentIsContainer = false;
   currentEvents: IEvent[] = null;
   currentCompName = '';
+  currentDataItem: IOperatorData = null;
   isNameError = false;
   compNames = [];
   constructor(
@@ -64,6 +65,11 @@ export class SettingsComponent implements OnInit, OnChanges, AfterViewInit {
       this.title = this.currentType.substring(0, 1).toUpperCase() + this.currentType.substring(1);
       this.hasDataItem = this.currentType !== 'container' && this.currentType !== 'button';
       this.currentCompName = this.currentCompConfig.name;
+      if (this.hasDataItem && this.currentType !== 'page' && !this.pageConfig.dataItems[this.currentCompConfig.id]) {
+        this.pageConfig.dataItems[this.currentCompConfig.id] = new OperatorData();
+        this.pageConfig.dataItems[this.currentCompConfig.id].operator = 0;
+      }
+      this.currentDataItem = this.pageConfig.dataItems[this.currentCompConfig.id];
     } else {
       if (isPage || (config as IComponent).type === 'container') {
         config .children.forEach((childConfig) => {

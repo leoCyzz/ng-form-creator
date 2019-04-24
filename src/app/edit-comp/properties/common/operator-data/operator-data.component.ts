@@ -1,11 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { IOperatorData, IDataTable, IDataGroup, OPERATOR_TYPES } from 'app/model/data';
 
 @Component({
   selector: 'fc-operator-data',
   templateUrl: './operator-data.component.html'
 })
-export class OperatorDataComponent implements OnInit {
+export class OperatorDataComponent implements OnInit, OnChanges {
 
   @Input() dataItem: IOperatorData;
   @Input() dataTables: IDataTable[];
@@ -17,5 +17,9 @@ export class OperatorDataComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
   }
 }

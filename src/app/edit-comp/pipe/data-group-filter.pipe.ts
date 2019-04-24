@@ -7,7 +7,8 @@ import { IDataGroup } from 'app/model/data';
 export class DataGroupFilterPipe implements PipeTransform {
 
   transform(dataGroups: IDataGroup[], name: string = ''): any {
-    const filterDataGroup = dataGroups.find(dataGroup => dataGroup.name === name.toString());
+    const filterName = name ? name.toString() : '';
+    const filterDataGroup = dataGroups.find(dataGroup => dataGroup.name === filterName);
     return filterDataGroup ? filterDataGroup.tableId : '';
   }
 

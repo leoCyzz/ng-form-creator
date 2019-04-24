@@ -7,7 +7,8 @@ import { IDataTable } from 'app/model/data';
 export class DataTableFilterPipe implements PipeTransform {
 
   transform(dataTables: IDataTable[], tableId: string = ''): any {
-    const filterTable = dataTables.find(table => table.id === tableId.toString());
+    const filterTableId = tableId ? tableId.toString() : '';
+    const filterTable = dataTables.find(table => table.id === filterTableId);
     return filterTable ? filterTable.fields : [];
   }
 

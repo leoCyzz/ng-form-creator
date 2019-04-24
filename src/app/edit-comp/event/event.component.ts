@@ -46,6 +46,10 @@ export class EventComponent implements OnInit, OnChanges {
   }
 
   onAddEvent() {
+    if (!this.remote) {
+      this.remotes[this.config.id] = {};
+      this.remote = this.remotes[this.config.id];
+    }
     const newEvent = new CompEvent();
     this.remote[newEvent.id] = new PageRemoteAction();
     this.events.push(newEvent);

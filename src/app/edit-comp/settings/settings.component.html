@@ -44,8 +44,10 @@
             <fc-data-group [config]="currentCompConfig" [dataTables]="dataTables" class="fc__property-collapse"></fc-data-group>
           </ng-container>
           <ng-template #dataItemTemplate>
-            <ng-container fcDynamicDataItem [dataItems]="pageConfig.dataItems" [currentComp]="currentCompConfig" 
-            [dataTables]="dataTables" [dataGroups]="pageConfig.dataGroups"></ng-container>
+            <!-- <ng-container fcDynamicDataItem [dataItems]="pageConfig.dataItems" [currentComp]="currentCompConfig" 
+            [dataTables]="dataTables" [dataGroups]="pageConfig.dataGroups"></ng-container> -->
+            <fc-operator-data [(dataItem)]="currentDataItem" [dataTables]="dataTables"
+              [dataGroups]="pageConfig.dataGroups" [hasOperator]="true" [hasValue]="false"></fc-operator-data>
           </ng-template>
           <ng-template #dataTpl>
             <div class="fc-setting-item-head" [class.active]="dataSetting.nzActive">
